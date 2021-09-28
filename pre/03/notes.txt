@@ -1,0 +1,21 @@
+3) VOID METHODS
+
+Math: Math.[operation](thing)
+- root, sin, cos, tan (radians), PI, log, pow(x, y)
+- can define data type "long" (usually integer using up to 64 bits)
+
+Adding new methods (ex):
+- flow of execution is always main first
+
+
+    public class PrintTwice {
+
+        public static void printTwice(String s) {
+           System.out.println(s);
+           System.out.println(s);
+        } // methods can take multiple variables ex (int hour, minute)
+
+       public static void main(String[] args) {
+           printTwice("Don't make me say this twice!");
+       }
+    }
