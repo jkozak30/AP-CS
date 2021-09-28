@@ -1,0 +1,36 @@
+4) CONDITIONALS
+
+Relational operators (boolean; can be true or false)
+- x == y -> equals
+- x != y -> doesn't equal
+- x > y -> greater than
+- x < y -> less than
+- x >= y -> greater than or equal
+- x <= y -> less than or equal
+* two sides must be compatible (ex 4 > "5" is invalid)
+* only == and != work with strings 
+
+Logical operators (boolean)
+- && -> and
+- || -> or
+- ! -> not
+  - (true || [anything]) is always true, can short circuit
+- De Morgan's laws:
+  - !(A && B) <-> !A || !B
+  - !(A || B) <-> !A && !B
+
+Conditional statements
+- if statement (examples)
+
+    if (x > 0) {
+      System.out.println("x is positive");
+    }
+--------------------
+    if (x > 0) {
+        System.out.println("x is positive");
+      } else if (x < 0) {
+        System.out.println("x is negative");
+      } else {
+        System.out.println("x is zero");
+    } //chaining, nesting
+    
