@@ -1,0 +1,14 @@
+1) HELLO WORLD
+
+Create a text file with name Hello.java:
+
+public class Hello {
+  public static void main (String[] args){
+    System.out.println("Hello World!");
+  }
+}
+
+Steps in terminal:
+1) run ls (or dir) -> shows directory
+2) javac Hello.java -> compile
+3) java Hello -> runs the program
