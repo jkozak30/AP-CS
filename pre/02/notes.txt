@@ -1,0 +1,50 @@
+2) DATA TYPES
+
+Define variables: [data type] [name];
+Assignment: [data type] [name] = [value];
+
+Types of variables:
+- String: "message"
+- Int: any integer value
+- Double: (float) decimal value; floating point number
+* data type and data value must agree (ex int x = "1"; // not legal)
+- Often good to avoid literals (use final [data type] [name] = [value]; to define constants)
+
+State Diagrams
+- Program's state
+- Show the current values of each variable
+
+Using print/println:
+- System.out.print([thing]);
+  - thing can be a variable, string, arithmetic expression, etc.
+- print: prints on same line
+- println: usually at the end of a line; prints on new line
+
+Arithmetic/modulus operators:
+- symbols + - * / %
+- if you use division on integers, your output will be the value rounded towards 0
+  - if you want exact, use float (ex (1.0 / 3.0) rather than (1 / 3))
+- There can be rounding errors with float, so use integers where you can
+- can specify integral part of a float by using (int) x;
+- No arithmetic operators with strings, but you can concatenate terms
+
+    ex. 
+    System.out.println(1 + 2 + "Hello");
+    // the output is 3Hello
+    
+    System.out.println("Hello" + 1 + 2);
+    // the output is Hello12
+    
+Classes:
+- System: provides methods related to the environment the program runs in
+- Scanner: takes input from keyboard
+  - Need to import -> import java.util.Scanner;
+  - Create scanner within class -> Scanner in = new Scanner(System.in);
+  - Set variable to the input (ex)-> inch = in.nextInt();
+  
+Formatting
+- printf (ex)-> System.out.printf("Four thirds = %.3f", 4.0 / 3.0);
+- %d -> decimal integer
+- %08d (ex)-> padded with 0s, value is at least 8 digits wide
+- %f -> floating point
+- %.2f (ex)-> rounded to 2 decimal places
