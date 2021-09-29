@@ -34,5 +34,19 @@ Conditional statements
         System.out.println("x is zero");
     } //chaining, nesting
     
-    
-    
+Flag variables
+- variable type: boolean
+- can be set to true/false, or have a condition:
+  - (ex) boolean evenFlag = (n % 2 == 0);
+
+- Return: use to terminate method before you reach the end
+
+ex. if (x <= 0.0) {
+      System.err.println("Error: x must be positive.");
+      return;
+    } //validates input
+
+Recursion
+- method calls back on itself (ex. countdown to 0)
+- need a base case/ count up/down, or StackOverflowError
+- useful for repeated division when converting from base 10
