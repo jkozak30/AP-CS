@@ -1,0 +1,40 @@
+5) VALUE METHODS
+
+- Return [value]: 
+    
+    public static double calculateArea(double radius) {
+      return Math.PI * radius * radius;
+    }
+    
+- Writing methods:
+  - incremental development (take smaller steps and compile/run code as you go, so you know where possible problems are)
+  
+- Boolean methods:
+  - return truth value 
+  (ex)
+
+    public static boolean isSingleDigit(int x) {
+      return x > -10 && x < 10;
+    }
+    
+More Recursion
+- factorial example
+
+    public static int factorial(int n) {
+      if (n == 0) {
+          return 1;
+      }
+      int recurse = factorial(n - 1);
+      int result = n * recurse; // n * (n - 1)!
+      return result;
+    }
+    
+- Fibonacci example
+  - f(1) = 1; f(2) = 2; f(n) = f(n - 1) + f(n - 2)
+
+    public static int fibonacci(int n) {
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
