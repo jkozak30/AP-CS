@@ -1,4 +1,4 @@
-//Julia Kozak
+//Dunking Ducks: Julia Kozak (Flopsy); Jason Zhou (Tiggy); Daniel Jung (Ralph)
 //APCS
 //HW09 -- What are BigSibs Good For?
 //2021-10-04
