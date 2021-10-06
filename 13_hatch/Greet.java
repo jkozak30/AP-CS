@@ -11,7 +11,6 @@ public class Greet {
     String greeting1, greeting2, greeting3, greeting4;
 
     BigSib richard = new BigSib();
-    richard.setHelloMsg("Word up");
 
     greeting1 = richard.greet("freshman");
     System.out.println(greeting1);
@@ -23,7 +22,6 @@ public class Greet {
     System.out.println(greeting2);
 
     BigSib ruby = new BigSib();
-    ruby.setHelloMsg("Hey ya");
 
     greeting3 = ruby.greet("Kong Fooey");
     System.out.println(greeting3);

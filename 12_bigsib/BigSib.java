@@ -9,6 +9,10 @@ QCC:
 
 public class BigSib {
 	String helloMsg;
+	public constructor(){
+		helloMsg = "Hello";
+		return helloMsg;
+	}
 	public String setHelloMsg(String s) {
 		helloMsg = s;
 		return helloMsg;

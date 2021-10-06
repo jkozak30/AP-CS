@@ -11,7 +11,8 @@ public class Greet {
     String greeting1, greeting2, greeting3, greeting4;
 
     BigSib richard = new BigSib();
-    richard.setHelloMsg("Word up");
+
+	richard.contructor();
 
     greeting1 = richard.greet("freshman");
     System.out.println(greeting1);
