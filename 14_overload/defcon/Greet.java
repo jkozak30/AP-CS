@@ -3,6 +3,11 @@
 //HW14 -- Customize Your Creation
 //2021-10-08
 
+/* DISCO: You can have multiple contructors, overloaded ones can take inputs;
+QCC:
+*/
+
+
 public class Greet {
 	public static void main(String[] args) {
 		String greeting;
