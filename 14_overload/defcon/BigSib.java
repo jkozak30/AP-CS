@@ -1,4 +1,4 @@
-//Julia Kozak
+//Julia Kozak (Flopsy); John Gupta-She (Po); Kevin Cheng
 //APCS
 //HW14 -- Customize Your Creation
 //2021-10-08
