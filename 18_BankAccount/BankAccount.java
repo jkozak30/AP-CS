@@ -9,7 +9,7 @@ DISCO: Integer.toString(<Integer>) can be used to print integers;
        \n creates a New line within print
 QCC:
 Team Wires' Latest and Greatest Q2 Response: We know java provides a default constructor because when we try to print the value of an instance variable before the value is set, there is a default printed response (ex. ints printed as 0, and Strings printed as "null")
-Team Wires' Latest and Greatest Q3 Response: 
+Team Wires' Latest and Greatest Q3 Response: We can try running System.out.println(John.toString()); which provides a string representation of an object. Since the code compiles and outputs the object as a string, we confirm that there is a toString method that can be used in every class, which we can overload if we desire.
 */
 
 public class BankAccount {
@@ -130,5 +130,7 @@ public class BankAccount {
     // new instance to test if lastID works
     BankAccount Jim = new BankAccount("Jimmy", "s3cr3tp4ssw0rd", 2017, 2222);
     Jim.printInfo(2017);
+    // toString
+    System.out.println(John.toString());
   }
 }
