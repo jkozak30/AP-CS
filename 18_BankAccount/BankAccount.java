@@ -14,7 +14,7 @@ Team Wires' Latest and Greatest Q3 Response:
 
 public class BankAccount {
   // instance variables
-  public int lastID = 987654321;
+  public static int lastID = 987654321;
   public String name;
   private String password;
   private int PIN;
@@ -26,7 +26,8 @@ public class BankAccount {
     password = ppassword;
     PIN = pPIN;
     bal = pbal;
-    userID = lastID;
+    userID = lastID % 1000000000;
+    BankAccount.lastID += 1;
   }
   // Print name, ID, and balance with the input of PIN
   public void printInfo(int pPIN) {
@@ -57,8 +58,12 @@ public class BankAccount {
   // Set PIN with password, old PIN, and new PIN
   public void setPIN(String ppassword, int oldPIN, int newPIN) {
     if (oldPIN == PIN && ppassword == password) {
-      PIN = newPIN;
-      System.out.println("Your PIN has been changed to " + PIN);
+      if (newPIN < 100 || newPIN > 9999) {
+        System.out.println("Your PIN must be a four digit positive number");
+      } else {
+        PIN = newPIN;
+        System.out.println("Your PIN has been changed to " + PIN);
+      }
     } else {
       System.out.println("Password or old PIN was incorrect");
     }
@@ -66,8 +71,12 @@ public class BankAccount {
   // Deposit into balance with input of PIN
   public void deposit(int deposit, int pPIN) {
     if (pPIN == PIN) {
-      bal = bal + deposit;
-      System.out.println("Your balance is now " + bal);
+      if (deposit < 0) {
+	System.out.println("You cannot deposit a negative amount of money");
+      } else {
+        bal = bal + deposit;
+        System.out.println("Your balance is now " + bal);
+      }
     } else {
       System.out.println("PIN was incorrect");
     }
@@ -76,8 +85,12 @@ public class BankAccount {
   public void withdraw(int withdrawal, int pPIN) {
     if (pPIN == PIN) {
       if (withdrawal < bal) {
-        bal = bal - withdrawal;
-        System.out.println("Your balance is now " + bal);
+	if (withdrawal < 0) {
+	  System.out.println("You cannot withdraw a negative amount of money");
+	} else {
+          bal = bal - withdrawal;
+          System.out.println("Your balance is now " + bal);
+	}
       } else {
 	System.out.println("You cannot withdraw more than what is in your account");
       }
@@ -99,17 +112,23 @@ public class BankAccount {
     John.setName("John Doe", 1033); // error
     John.setName("John Doe", 1039); // ok
     // PIN change
+    John.setPIN("ok", 1039, 10102020); //error
     John.setPIN("passw", 1039, 2049); // error
     John.setPIN("ok", 1033, 2049); // error
     John.setPIN("ok", 1039, 2049); //ok
     // deposit
+    John.deposit(-10, 2049); // error
     John.deposit(2900, 2048); // error
     John.deposit(2900, 2049); // ok
     // withdrawal
+    John.withdraw(-294, 2049); // error
     John.withdraw(2900, 2048); // error
     John.withdraw(994584299, 2049); // error
     John.withdraw(2900, 2049); // ok
     // re-print info with new name, PIN, password, balance
     John.printInfo(2049);
+    // new instance to test if lastID works
+    BankAccount Jim = new BankAccount("Jimmy", "s3cr3tp4ssw0rd", 2017, 2222);
+    Jim.printInfo(2017);
   }
 }
