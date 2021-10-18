@@ -24,7 +24,7 @@ public class BankAccount {
   public BankAccount(String pname, String ppassword, int pPIN, int pbal) {
     name = pname;
     password = ppassword;
-    PIN = pPIN;
+    PIN = pPIN % 10000;
     bal = pbal;
     userID = lastID % 1000000000;
     BankAccount.lastID += 1;
@@ -32,7 +32,7 @@ public class BankAccount {
   // Print name, ID, and balance with the input of PIN
   public void printInfo(int pPIN) {
     if (pPIN == PIN) {
-      System.out.println("---- ACCOUNT INFO ----\nName: " + name + "\nPassword: " + password + "\nPIN: " + Integer.toString(PIN) + "\nID: " + Integer.toString(userID) + "\nBalance: $" + Integer.toString(bal));
+      System.out.println("---- ACCOUNT INFO ----\nName: " + name + "\nUser ID: " + Integer.toString(userID) + "\nPIN: " + Integer.toString(PIN) + "\nID: " + Integer.toString(userID) + "\nBalance: $" + Integer.toString(bal) + "\n----------------------");
     } else {
       System.out.println("PIN was incorrect");
     }
@@ -72,7 +72,7 @@ public class BankAccount {
   public void deposit(int deposit, int pPIN) {
     if (pPIN == PIN) {
       if (deposit < 0) {
-	System.out.println("You cannot deposit a negative amount of money");
+	System.out.println("You cannot deposit a negative amount, try again");
       } else {
         bal = bal + deposit;
         System.out.println("Your balance is now " + bal);
