@@ -4,7 +4,8 @@
 // 2021-10-19
 
 /*
-DISCO: you can use if/else statements to check if an input matches with an instance variable value;
+DISCO: String equality can be checked with .equals() method;
+       you can use if/else statements to check if an input matches with an instance variable value;
        use (short)<number> (long)<number> etc. to specify that an integer value is a short;
 QCC:
 */
@@ -39,7 +40,7 @@ public class BankAccount {
       pin = newPin;
     } else {
       pin = 9999;
-      System.out.println("Invalid 4-digit pin. Your new pin is 9999.");
+      System.out.println("Error: Pin out of range. Your new pin is 9999.");
     }
     return oldPin;
   }
@@ -50,7 +51,7 @@ public class BankAccount {
       acctNum = newAcctNum;
     } else {
       acctNum = 999999999;
-      System.out.println("Invalid 9-digit account number. Your new account number is 999999999.");
+      System.out.println("Error: Acount number out of range. Your new account number is 999999999.");
     }
     return oldAcctNum;
   }
@@ -72,7 +73,7 @@ public class BankAccount {
       balance = balance - withdrawAmount;
       return true;
     } else {
-      System.out.println("You cannot withdraw more than what is in your account.");
+      System.out.println("Error: You cannot withdraw more than what is in your account.");
       return false;
     }
   }
