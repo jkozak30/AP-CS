@@ -1,8 +1,15 @@
-/***
- *  class Coin
- *  by Clyde "Thluffy" Sinclair
- *  SKELETON
- ***/
+/*
+* Creative Name - Julia Kozak, Neil Lin (Flopsy, Hatch)
+* APCS
+* HW23 -- What Does Equality Look Like?
+* 2021-10-22
+*
+* DISCO: Math.random() generates a random double from 0.0 to 1.0
+*
+*
+* QCC: what does .toString() do, or how were we supposed to use it?
+*
+*/
 
 public class Coin {
   //attributes aka instance vars
@@ -23,6 +30,9 @@ public class Coin {
   headsCtr = 0;
   tailsCtr = 0;
   bias = 0.5;
+  name = "null";
+  upFace = "heads";
+  assignValue(name);
   }
 
 
@@ -43,6 +53,12 @@ public class Coin {
   } else {
   	System.out.println("Invalid coin.");
   }
+  upFace = "heads";
+  flipCtr = 0;
+  headsCtr = 0;
+  tailsCtr = 0;
+  bias = 0.5;
+  assignValue(name);
   }
 
 
@@ -57,7 +73,12 @@ public class Coin {
   } else {
   	name = "null";
   }
-  upFace = "heads";
+  upFace = nowFace;
+  flipCtr = 0;
+  headsCtr = 0;
+  tailsCtr = 0;
+  bias = 0.5;
+  assignValue(name);
   }
 
 
@@ -82,6 +103,10 @@ public class Coin {
   public int getTailsCtr() {
   return tailsCtr;
   }
+
+  public double getBias() {
+    return bias;
+  }
   // ----------------------------
 
 
@@ -94,10 +119,10 @@ public class Coin {
   private double assignValue( String s ) {
   if (s == "penny") {
   value = 1;
-  } 
+  }
   if (s == "nickel") {
   value = 5;
-  } 
+  }
   if (s == "dime") {
   value = 10;
   }
@@ -106,10 +131,10 @@ public class Coin {
   }
   if (s == "half dollar") {
   value = 50;
-  } 
+  }
   if (s == "dollar") {
   value = 100;
-  } 
+  }
   return value;
   }
 
@@ -142,8 +167,17 @@ public class Coin {
    * Returns "heads" or "tails"
    ***/
   public String flip() {
-  	
-  	return "0";
+    flipCtr += 1;
+    double flip = Math.random();
+    boolean isHeads = (flip <= bias);
+    if (isHeads == true) {
+      upFace = "heads";
+      headsCtr += 1;
+    } else {
+      upFace = "tails";
+      tailsCtr += 1;
+    }
+  	return upFace;
   }
 
 
@@ -154,7 +188,11 @@ public class Coin {
    * or both showing tails. False otherwise.
    ***/
   public boolean equals( Coin other ) {
-	return true;
+	if (upFace == other.upFace) {
+    return true;
+  } else {
+    return false;
+  }
   }
 
 
@@ -164,7 +202,7 @@ public class Coin {
    * postcond: Return String comprised of name and current face
    ***/
   public String toString() {
-	return "string";
+	return name + " -- " + upFace;
   }
 
 }//end class
