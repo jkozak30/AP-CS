@@ -1,3 +1,16 @@
+/*
+* Creative Name - Julia Kozak, Neil Lin (Flopsy, Hatch)
+* APCS
+* HW23 -- What Does Equality Look Like?
+* 2021-10-22
+*
+* DISCO: Math.random() generates a random double from 0.0 to 1.0
+*
+*
+* QCC: what does .toString() do, or how were we supposed to use it?
+*
+*/
+
 /***
     driver for class Coin
 
@@ -24,21 +37,22 @@ public class Driver {
 
       //test 1st overloaded constructor
       Coin yours = new Coin( "quarter" );
+      yours.reset("heads", 1.0);
 
       //test 2nd overloaded constructor
       Coin wayne = new Coin( "dollar", "heads" );
 
       //test toString() methods of each Coin
-      System.out.println("mine: " + mine);
-      System.out.println("yours: " + yours);
-      System.out.println("wayne: " + wayne);
+      System.out.println("mine: " + mine.toString());
+      System.out.println("yours: " + yours.toString());
+      System.out.println("wayne: " + wayne.toString());
 
       //test flip() method
       System.out.println("\nAfter flipping...");
       yours.flip();
       wayne.flip();
-      System.out.println("yours: " + yours);
-      System.out.println("wayne: " + wayne);
+      System.out.println("yours: " + yours.toString());
+      System.out.println("wayne: " + wayne.toString());
 
       //test equals() method
       if ( yours.equals(wayne) ) {
@@ -47,9 +61,23 @@ public class Driver {
       else {
         System.out.println( "No match. Firestarter you can not be." );
       }
+      yours.flip();
+      wayne.flip();
+      yours.flip();
+      wayne.flip();
+      yours.flip();
+      wayne.flip();
+      yours.flip();
+      wayne.flip();
+      yours.flip();
+      wayne.flip();
+      //print info
+      System.out.println(yours.getFlipCtr() + "\n" + yours.getValue() + "\n" + yours.getHeadsCtr() + "\n" + yours.getTailsCtr());
+      System.out.println(wayne.getFlipCtr() + "\n" + wayne.getValue() + "\n" + wayne.getHeadsCtr() + "\n" + wayne.getTailsCtr());
+
+
 
 
   }//end main()
 
 }//end class
-
