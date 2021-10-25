@@ -24,11 +24,18 @@
 
 public class Driver {
 
+  public static void flipXY(Coin notOther, Coin other) {
+    while (notOther.getMatchCtr() < 65536 || notOther.getMatchCtr() % 2005 != 0) {
+      other.flip();
+      notOther.flip();
+      notOther.equals(other);
+    }
+  }
   public static void main( String[] args ) {
     Coin me = new Coin();
     Coin you = new Coin();
 
-    me.flipXY(you);
+    flipXY(me, you);
     System.out.println(me.getMatchCtr()); //66165
     System.out.println(me.getFlipCtr());
   }//end main()
