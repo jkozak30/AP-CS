@@ -1,4 +1,4 @@
-//Julia Kozak, John Gupta-She, Ziying Jian
+//Julia Kozak, John Gupta-She, Ziying Jian (Duckies Flopsy, Po, <Ziying Duckie>)
 //APCS
 //HW27 -- FOR the Love of Strings
 //2021-10-29
