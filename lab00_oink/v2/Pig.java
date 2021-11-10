@@ -1,13 +1,10 @@
 /***
- * Team Won: Julia Kozak, Rin Fukuoka
+ * Julia Kozak, Rin Fukuoka
  * APCS
  * L00 -- Etterbay Odingcay Oughthray Ollaborationcay
  * 2021-11-10
  * time spent: .5hrs
  *
- * DISCO: You can think about spaces as punctuation;
- *        toUpperCase and toLowerCase can be used;
- * QCC: How do we incorporate the Scanner functionality?
  * class Pig
  * a Pig Latin translator
  *           9
@@ -28,7 +25,8 @@ public class Pig {
   //static vars
   private static final String VOWELS = "aeiou";
   private static final String CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  private static final String PUNCS = ".,:;!? 0123456789";
+  private static final String PUNCS = ".,:;!? 1234567890";
+  //note numbers are treated like punctuation (things before/after numbers form different Strings)
 
   //checks for specific letter
   public static boolean hasA( String w, String letter ) {
@@ -68,6 +66,7 @@ public class Pig {
     return ans;
   }
 
+  //for case of first vowel and letter being y
   public static String secondVowel( String w ) {
     String ans = "";
     if ( (allVowels(w)).length() > 1 ) {
@@ -81,7 +80,7 @@ public class Pig {
     return isAVowel( w.substring(0,1) );
   }
 
-  //checks if character is punctuation or space or number
+  //checks if character is punctuation or space
   public static boolean isPunc( String symbol ) {
     return PUNCS.indexOf( symbol ) != -1;
   }
@@ -106,36 +105,39 @@ public class Pig {
     return isUpperCase(w.substring(0,1) );
    }
 
-  public static boolean firstLetY( String w ) {
+   //checks if first letter is Y (special case)
+   public static boolean firstLetY( String w ) {
     return (w.substring(0, 1)).toLowerCase() == "y";
    }
 
   //creates word
   public static String engToPig( String w ) {
     String ans = "";
-    //checks for punc, and if it has, then the method separates the String at the punc and runs engToPig on each substring
-    if (hasPunc(w)) {
+    //checks for punc, then separates Strings before/after punc
+    if (hasPunc(w) && w.length() > 1) {
       for (int i = 0; i < w.length(); i++) {
         if (isPunc(w.substring(i, i+1)) && i+1 < w.length() && i != 0) {
           return engToPig(w.substring(0, i)) + w.substring(i, i+1) + engToPig(w.substring(i+1));
         } else if (isPunc(w.substring(i, i+1)) && i+1 == w.length()){
           return engToPig(w.substring(0, i)) + w.substring(i, i+1);
         } else if (isPunc(w.substring(i, i+1)) && i == 0) {
-	  return w.substring(0, 1) + engToPig(w.substring(1));
-	}
+          return w.substring(0, 1) + engToPig(w.substring(1));
+        }
       }
+    } else if (hasPunc(w) && w.length() == 1) {
+      return w;
     }
-    //if first letter (in LC) is a vowel, add "way" to end
+    //checks if first letter is a vowel
     if ( beginsWithVowel(w.toLowerCase()) && !(firstLetY(w))) {
       ans = w + "way";
-    } else if (!firstLetY(w))/* add substring before first vowel to end, + "ay" */{
+    } else if (!firstLetY(w)) /* doesn't begin with vowel or y */{
       int vPos = w.indexOf( firstVowel(w) );
       ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
-    } else {
+    } else /* begins with y */{
       int vPos = w.indexOf( secondVowel(w) );
       ans = w.substring(vPos) + w.substring(0, vPos) + "ay";
     }
-    //if first letter is uppercase, output String with first letter uppercase
+    //first letter uppercase
     if (beginsWithUpper(w) && w.length() > 1) {
       String firstLetter = (ans.substring(0, 1)).toUpperCase();
       String restOfWord;
@@ -146,12 +148,12 @@ public class Pig {
   }
 
   public static void main( String[] args ) {
-    System.out.println(engToPig("Yonder"));
-    System.out.println(engToPig("A12s"));
-    
+    System.out.println(engToPig("testing testing 123"));
+    System.out.println(engToPig("Yonder1"));
+
     Scanner sc = new Scanner( System.in );
     while (sc.hasNext()) {
-    	engToPig(sc.next());
+    	System.out.println(engToPig(sc.next()));
     }
     /*
     for( String word : args ) {
@@ -162,8 +164,6 @@ public class Pig {
       System.out.println( "---------------------" );
     }
     */
-    
   }//end main()
 
 }//end class Pig
-
