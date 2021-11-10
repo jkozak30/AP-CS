@@ -34,7 +34,7 @@ import java.util.Scanner;
 public class Pig {
 
   //static vars
-  private static final String VOWELS = "aeiou";
+  private static final String VOWELS = "aeiouy";
   private static final String CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   private static final String PUNCS = ".,:;!? 1234567890";
   //note numbers are treated like punctuation (things before/after numbers form different Strings)
@@ -118,7 +118,7 @@ public class Pig {
 
    //checks if first letter is Y (special case)
    public static boolean firstLetY( String w ) {
-    return (w.substring(0, 1)).toLowerCase() == "y";
+    return ((w.substring(0, 1)).toLowerCase()).equals("y");
    }
 
   //creates word
