@@ -3,7 +3,7 @@
  * APCS
  * L00 -- Etterbay Odingcay Oughthray Ollaborationcay
  * 2021-11-10
- * time spent: 1.0hrs
+ * time spent: .5hrs
  *
  * class Pig
  * a Pig Latin translator
@@ -17,17 +17,6 @@
  *      | |---| |
  *      [_]   [_]
  ***/
-
-/*
-  DISCO: Numbers and spaces can be treated as punctuation
-         Scanner can accept inputs from a text file with "<"
-  QCC: is there a more efficient or simplified way to deal with punctuation?
-  HOW WE UTILIZED SCANNER DEMO (v2): we imported the Scanner class as the demo did, created a Scanner object, then ran a while loop similar to the one in the demo but rather than printing each word, the loop would print each translated word
-  WHAT CAUSES THE RUNTIME ERROR IN THE SCANNER DEMO: for each run through the while loop, two next lines would be printed. This caused an error by the end, there was only one remaining line but main was instructed to print two.
-  NEW IN v2: Fixes a bug related to punctuation (v1 would produce runtime errors if more than one punc was at the end of the String)
-             Considers if the first letter is y, and now translates correctly
-             Includes scanner
-*/
 
 import java.util.Scanner;
 
