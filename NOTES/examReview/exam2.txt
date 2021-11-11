@@ -1,0 +1,29 @@
+Team Won: Julia Kozak, Rin Fukuoka
+APCS
+HW33 -- Exam 2 Review
+2021-11-12
+
+1. B, we can consider each possibility for the truth value of p and b. If p is true and b is false, the expression evaluates to false. For p is true and b is true, it is false. For p is false and b is false, it is true, and for p is false and b is true, it is true. So, p must be false for the expression to be true. 
+2. C, since in 9. + 95/100, it will evaluate 95/100 as integer division, which will obtain 0. So, the displayed value won’t be 9.95 but 9.0.
+3. B, we can consider each run through the for loop. It will first print 12 (then i=9), then 9 (i=6), then 6 (i=3), then 3 (i=0), at which point it exits the for loop. So, the final result is 12963.
+4. C, i starts at 0 and increments by 1 each time the while loop runs (until i=8), so it will stop running when i=8.
+5. E, because a non static method can access static and nonstatic variables and methods, but a static method cannot access non static methods/variables. So, only the lines containing “instance” in classMethod should be commented out.
+6. C, recall the definition. Recursion generally includes a base case, and a statement relating the output for n to the output for a smaller case that can be evaluated.
+7. A, recall the definition. The namespace is the set of names referring to objects.
+8. D, g would evaluate to 3.0, which would produce a compile time error because it is declaring a double value as an int datatype.
+9. E, the recursive function has no base case, so it would produce an overflow error (a runtime error).
+10. A, we read the first if statement and see that t > h is false, so we go to the else if condition (h > w), which is true. So, s has new value 4. Then, in the next if statement, we see h > t is true, so s has new value 5 (we can ignore the remainder of the if else).
+11. A, we can evaluate the expression, then convert it to an int. (x + y + x / y - x * y - x / (10*y) ) will follow regular order of operations, in which case we should get a value of -0.75. This is then typecast to an integer (rounds towards 0), which becomes 0.
+12. D, 89 is within the range of integers that can be expressed as int, byte, short, or long. It will also be automatically converted to a double, so all five will run without compiler errors.
+13. C, this is the main idea of Egoless Programming.
+14. A, (double)(25/4) will evaluate (25/4) first as integer division, which will produce 6. Then, converted to a double, 6.0.
+15. D, (Math.random()*5) will produce a random double in the range [0, 5), then it will be converted to an integer (rounded towards 0) in which case it is equally likely to be any of {0, 1, 2, 3, 4}. Then 10 is added to the expression, so the final result is equally likely to be one of {10, 11, 12, 13, 14}.
+16. B, the expression printed will first have “1”, the value of the new String “2” directly next, then 3 will be added to the end of the output as “3”.
+17. D, the first two will evaluate to false because the Coins are defined as different objects (which == compares). The last two will evaluate to true because each of the two Coins have the same values (including value, upFace, etc.).
+18. B, it will only produce an error for byte because 160 is out of range (a byte can be any integer from -128 to 127).
+19. D, we can walk through each step in the while loop. For the first run through the loop, y = y * 10 = 0, then y = y + x % 10 = 3, then x = 12. For the next run, y = 30, then y = 32, then x = 1. In the last run, y = 320, then y = 321, x = 0 (and we exit the loop).
+20. D, meMaybe() will be called if both expressions before it are false. So, when !(a==b) && !(!(c<=b)), or when !(a==b) && (c<=b). This is true for a>b>c.
+21. C, we can evaluate the sum after each run through the while loop. We end up adding 3 modulo 1, 4 mod 2, 5 mod 3, … 10 mod 8 to the sum (all are 2 except the first two, which are each 0), so our total sum is 12.
+22. C, the method checks consecutive multiples of x (starting from x) to see if they are multiples of y, then returns the first one it finds. So, it returns the least common multiple of x and y.
+23. C, after twist, words[0] will be the first character of the original words[1] concatenated with original words[0] excluding its first character, or “NOW”. words[1] will become the first letter of words[0] with the remainder of words[1] (excluding first letter), or “HEAT”. So, our output is “NOW HEAT”
+24. C, We can evaluate the first few runs through the for loop and see that by some turn < 50, n=3. After that, n will remain constant as (n+3)/2 will evaluate to 3 when n=3.
