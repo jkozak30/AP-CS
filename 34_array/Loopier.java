@@ -1,3 +1,15 @@
+// Team Orange Marshmallows: Julia Kozak, Diana Akhmedova, Nina Jiang (Flopsy, Ajax, Miss Alpaca)
+// APCS
+// HW34 -- A Pirate's Life for Me
+// 2021-11-13
+// Time Spent: 2.2 hours
+
+/*
+DISCO: When finding the length of an array (arr), use arr.length , no parentheses
+       To return an array in a method, write it like any other data type (ex. int[] )
+QCC: Is it possible to make a recursive linear search algo without a third parameter?
+*/
+
 public class Loopier {
 
 	public static void setArray( int[] a ) {
@@ -19,7 +31,7 @@ public class Loopier {
 	public static void setArrayRange ( int[] a ) {
 		int length = a.length;
 		int max = 1000;
-		int min = 100;
+		int min = 0;
 		for (int i = 0; i < length; i++) {
 			a[i] = (int)(Math.floor(Math.random() * (max-min+1) + min));
 		}
@@ -52,15 +64,15 @@ public class Loopier {
 		}
 		return -1;
 	}
-	public static int linSearchR( int[] a, int target ) {
-		if (a.length < 1) {
+
+	//note third parameter must always be 0 to start from the first index
+	public static int linSearchR( int[] a, int target, int i ) {
+		if (i == a.length) {
 			return -1;
-		}
-		if (a[0] == target) {
-			return 0;
+		} else if (a[i] == target) {
+			return i;
 		} else {
-			return 0;
-		}
+			return linSearchR(a, target, i+1);
 		}
 	}
 	public static int freq( int[] a, int target ) {
@@ -90,23 +102,13 @@ public class Loopier {
 	}
 
 	public static void main(String[] args) {
-		int[] list = new int[4000];
+		int target = (int)(Math.random() * 1000);
+		int[] list = new int[400];
 		setArrayRange(list);
-		System.out.println(linSearch(list, 100));
-		System.out.println(freq(list, 100));
-		System.out.println(freqRec(list, 100));
-		setArrayRange(list);
-		System.out.println(linSearch(list, 100));
-		System.out.println(freq(list, 100));
-		System.out.println(freqRec(list, 100));
-		setArrayRange(list);
-		System.out.println(linSearch(list, 100));
-		System.out.println(freq(list, 100));
-		System.out.println(freqRec(list, 100));
-		setArrayRange(list);
-		System.out.println(linSearch(list, 100));
-		System.out.println(freq(list, 100));
-		System.out.println(freqRec(list, 100));
+		System.out.println("Target: " + target);
+		System.out.println(printArray(list));
+		System.out.println("Linear Search: " + linSearchR(list, target, 0));
+		System.out.println("Frequency: " + freq(list, target));
 	}
 }
 
