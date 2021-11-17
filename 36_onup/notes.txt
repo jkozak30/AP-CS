@@ -1,0 +1,33 @@
+Debugging: best to develop code incrementally
+
+Types of errors:
+- Compile-Time
+- Run-Time
+- Logic Error
+
+COMPILE TIME
+- A lot of errors may have all been caused by one thing; check the first error first.
+- Errors may suggest the wrong solution; if you don't understand an error, focus on where in occurred.
+- Syntax: check parentheses, capitalization, semicolons, quotes, parameter types, return types, static/nonstatic
+- If all else fails, debug by bisection (make a new version, and delete whole sections and compile).
+
+RUN TIME
+- Program may "hang" (do nothing, usually because of infinite recursion/loop).
+  - To check this, run a print statement before or after the loop.
+  * But, don't stack up print statements (delete unnecesaary).
+- Types of errors:
+  - NullPointerException: usually with arrays, object you refer to is null.
+  - ArrayIndexOutOfBoundsError: index referred to is not in range [0, array.length-1].
+  - FileNotFoundException: file referred to wasn't imported.
+  - ArithmeticException: ex. division by 0.
+
+LOGIC ERRORS
+- Program doesn't do what it was intended to do.
+- Ask: What is the execution missing? What extra is it doing? What section of code does the fault occur in?
+- Common things to check: integer division, floating point rounding errors, == vs. .equals.
+- Break up complex expressions, use intermediate variables to easily track code.
+
+OTHER NOTES
+- Take breaks from coding.
+- Ask for peer review/assistance.
+- Explain your problem and code to something to figure out the flaw. 
