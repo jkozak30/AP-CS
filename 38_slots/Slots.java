@@ -1,21 +1,23 @@
 /*****************************************************
- * Clyde "Thluffy" Sinclair
- * APCS pd00
- * HW38 -- Shmoney
+ * Orange Marshmallows: Julia Kozak, Diana Akhmedova, Nina Jiang (Duckies Flopsy, Ajax, Miss Alpaca)
+ * APCS pd08
+ * HW38 -- Spin Class
  * 2021-11-18
+ * Time Spent: 0.5 hrs
  *
- * class Slots
- * skeleton
+ * DISCO: "\t" inserts a tab (similar to "\n" inserting a new line)
+	  You can allocate memory to an array after it has been initialized
+ * QCC:   In spinOnce(), is there a different way to randomly shuffle the fruits?
  *****************************************************/
 
 public class Slots {
 
   //instance variable to represent master copy for slot machine
   private static final String[] FRUITS = {
-    "lime", "lime", "lime", 
-    "lemon", "lemon", "lemon", 
+    "lime", "lime", "lime",
+    "lemon", "lemon", "lemon",
     "cherry", "cherry", "cherry",
-    "tangerine", "tangerine", "tangerine", 
+    "tangerine", "tangerine", "tangerine",
     "peach", "peach", "peach"
   };
 
@@ -29,13 +31,13 @@ public class Slots {
     =====================================*/
   public Slots()
   {
-  	String[] _fruits = new String[15];
-  	for (int i=0; i<output.length; i++) {
+  	_fruits = new String[15];
+  	for (int i=0; i<_fruits.length; i++) {
   		_fruits[i] = FRUITS[i];
   	}
-  	
+
     //allocate memory for _fruits based on size of FRUITS:
-  
+
 
     //copy elements of FRUITS into _fruits:
 
@@ -44,15 +46,17 @@ public class Slots {
 
   /*=====================================
     String toString() -- overrides inherited toString()
-    pre:  
+    pre:
     post: returns String of elements in slots 0 thru 2, separated by tabs
     =====================================*/
-  public String toString(String[] ary)
+  public String toString()
   {
-    String ans = "Your spin...	";
+    String ans = "  ";
     for(int i=0; i<3; i++) {
-    	ans += ary[i];
-    	ans += "	";
+    	ans += _fruits[i];
+    	for(int j=0; j<15-(_fruits[i].length()); j++) {
+        ans += " ";
+      }
     }
     return ans;
   }
@@ -65,7 +69,7 @@ public class Slots {
     =====================================*/
   private void swap( int i, int j )
   {
-  	int oldJ = _fruits[j];
+  	String oldJ = _fruits[j];
   	_fruits[j] = _fruits[i];
   	_fruits[i] = oldJ;
 
@@ -79,12 +83,13 @@ public class Slots {
     =====================================*/
   public void spinOnce()
   {
+    for (int i=0; i<_fruits.length; i++) {
+      int otherIndex = (int)(Math.random() * _fruits.length);
+      swap(i, otherIndex);
+    }
     // A simple approach to shuffling:
     // iterate through the array, swapping
     // the val at each index with a randomly chosen other index
-    for(int i=0; i<_fruits.length; i++) {
-      swap(  );
-    }
   }
 
 
@@ -96,7 +101,8 @@ public class Slots {
     =====================================*/
   public boolean jackpot()
   {
-    boolean retBoo = false;
+    boolean retBoo;
+    retBoo = (_fruits[0].equals(_fruits[1]) && _fruits[1].equals(_fruits[2]));
 
 
     return retBoo;
@@ -107,14 +113,14 @@ public class Slots {
     boolean miniWin() -- checks for a winning combo
     pre:  _fruits is existing array
     post: returns true if first 3 slots represent winning combo,
-    or if first 3 slots mutually distinct, 
+    or if first 3 slots mutually distinct,
     false otherwise
     =====================================*/
   public boolean miniWin()
   {
-    boolean retBoo = ?
-
-
+    boolean retBoo;
+    boolean distinct = (!(_fruits[0].equals(_fruits[1])) && !(_fruits[1].equals(_fruits[2])) && !(_fruits[0].equals(_fruits[2])));
+    retBoo = jackpot() || distinct;
     return retBoo;
   }
 
@@ -123,7 +129,6 @@ public class Slots {
   public static void main( String[] args ) {
     //usage: move bar below down 1 line at a time to test functionality...
 
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Slots machine01 = new Slots();
     Slots machine02 = new Slots();
 
@@ -131,7 +136,6 @@ public class Slots {
     System.out.println();
     System.out.println( "Machine01 initial state:\t" + machine01 );
     System.out.println( "Machine02 initial state:\t" + machine02 );
-
     System.out.println( "\nSpinning machine01...\n" );
 
     machine01.spinOnce();
@@ -140,6 +144,7 @@ public class Slots {
     System.out.println( "Machine01 state:\t" + machine01 );
     System.out.println( "Machine02 state:\t" + machine02 );
     System.out.println();
+
 
 
     //test gamble-until-you-win mechanism
@@ -173,8 +178,6 @@ public class Slots {
     System.out.println( "====================================" );
     System.out.println( "Your spin..." + "\t" + machine01 );
     System.out.println( "JACKPOT!\n" );
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main
 
 }//end class Slots
-
