@@ -10,9 +10,10 @@
  * The only modification you should make to this driver file is moving comment bar down in main method, and filling in DISCO/QCC
  * (If you feel other changes are merited, note what and why, so that we may discuss on the 'morrow.)
  * 
- * DISCO:
+ * DISCO: you can use try() catch() with scanner to check for a valid input
  *
- * QCC:
+ * QCC: how can you make it so that you cannot select a difficulty out of the range [1, 3]?
+ *      is there a specific attack that each character should have, or is it somewhat randomized?
  * 
  **********************************************/
 
