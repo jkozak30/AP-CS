@@ -8,6 +8,7 @@
 // APCS pd08
 // HW40 -- 2D arrays
 // 2021-11-30
+// time spent: 0.5 hrs
 
 /*
 DISCO: int[a][b] means that you have an integer array within an array, with a rows and b columns
