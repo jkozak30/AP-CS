@@ -4,10 +4,17 @@
  * practice working with 2D arrays
  ******************************/
 
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// Team Orange Marshmallows: Julia Kozak, Nina Jiang, Diana Akhmedova
+// APCS pd08
 // HW40 -- 2D arrays
 // 2021-11-30
+
+/*
+DISCO: int[a][b] means that you have an integer array within an array, with a rows and b columns
+       each array term doesn't necessarily need to have the same number of ints
+QCC:   what is the main use of 2D arrays, as compared to regular arrays?
+       can you have arrays within arrays infinitely?
+*/
 
 public class TwoDimArray
 {
