@@ -74,8 +74,18 @@ public class Rational {
 		denominator = denominator / gcd();
 	}
 	
-	public int compareTo() {
-		return 0;
+	public int compareTo(Rational q) {
+		Rational reduceThis = new Rational(this.numerator, this.denominator);
+		Rational reduceQ = new Rational(q.numerator, q.denominator);
+		reduceThis.reduce();
+		reduceQ.reduce();
+		if (reduceThis.numerator == reduceQ.numerator && reduceThis.denominator == reduceQ.denominator) {
+			return 0;
+		} else if (this.floatValue() > q.floatValue()) {
+			return 1;
+		} else {
+			return -1;
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -90,5 +100,18 @@ public class Rational {
 
 		a.divide(b);
 		System.out.println(a.toString());
+
+		a.reduce();
+		b.reduce();
+		System.out.println(b.toString());
+
+		Rational c = new Rational(a.numerator, a.denominator);
+		a.add(b);
+		System.out.println(a.toString());
+		b.add(c);
+		System.out.println(b.toString());
+		System.out.println(a.compareTo(b));
+		b.subtract(c);
+		System.out.println(b.toString());
 	}
 }
