@@ -1,7 +1,13 @@
-// Clyde "Thluffy" Sinclair
-// APCS1 pd0
+// Team Orange Marshmallows: Julia Kozak, Diana Akhmedova, Nina Jiang (Duckies Flopsy, Ajax, Miss Alpaca)
+// APCS1 pd08
 // HW44 -- expanding SuperArray functionality, encapsulation
-// 2021-12-08w
+// 2021-12-08
+
+/*
+DISCO: it is fine to have a statement <array0> = <array1>, as long as you know "array0" will now reference array1;
+       _size is used to track the number of meaningful elements
+QCC:   if we wanted to add an element at an index not in the range of size (ex. _size=4 and we want to use add(7, 2)), what would be the functionality for that (does _size increase by 4)?
+*/
 
 /***************************
  * class SuperArray version 2.0
@@ -49,8 +55,9 @@ public class SuperArray
   private void expand()
   {
     int[] temp = new int[ _data.length * 2 ];
-    for( int i = 0; i < _data.length; i++ )
+    for( int i = 0; i < _data.length; i++ ) {
       temp[i] = _data[i];
+    }
     _data = temp;
   }
 
@@ -66,6 +73,9 @@ public class SuperArray
   //           return old value at index
   public int set( int index, int newVal )
   {
+    while(index > _size) {
+      _size += 1;
+    }
     int temp = _data[index];
     _data[index] = newVal;
     return temp;
@@ -89,10 +99,11 @@ public class SuperArray
     if (_size + 1 > _data.length) {
     	expand();
     }
-    for(int i=_size-1; i>index; i--) {
-    	_data[i] = _data[i+1];
+    for(int i=_size; i>index; i--) {
+    	_data[i] = _data[i-1];
     }
-    _data[index];
+    _data[index] = newVal;
+    _size += 1;
   }
 
 
@@ -100,14 +111,18 @@ public class SuperArray
   //shifts elements left to fill in newly-empted slot
   public void remove( int index )
   {
-    /* YOUR IMPLEMENTATION HERE */
+    for(int i=index; i<_size-1; i++) {
+      _data[i] = _data[i+1];
+    }
+    _data[_size-1] = 0;
+    _size -= 1;
   }
 
 
   //return number of meaningful items in _data
   public int size()
   {
-    /* YOUR IMPLEMENTATION HERE */
+    return _size;
   }
 
 
@@ -115,7 +130,7 @@ public class SuperArray
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
+
       SuperArray curtis = new SuperArray();
       System.out.println( "Printing empty SuperArray curtis..." );
       System.out.println( curtis );
@@ -164,9 +179,8 @@ public class SuperArray
       mayfield.add(1,77);
       System.out.println("Printing SuperArray mayfield post-insert...");
       System.out.println(mayfield);
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~*/
+
   }//end main()
 
 
 }//end class
-
