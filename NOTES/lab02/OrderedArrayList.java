@@ -87,13 +87,11 @@ public class OrderedArrayList
   		_data.add(middle, newVal);
   		break;
   	}  else if (_data.get(middle) > newVal){
-  		middle -= increment/2;
-  		increment /= 2;
-  		increment += 1;
+		increment = (increment +1)/2;
+  		middle -= increment;
   	} else {
-  		middle += increment/2;
-  		increment /= 2;
-  		increment += 1;
+		increment = (increment +1)/2;
+  		middle += increment;
   	}
   }
   if (middle <= 0) {
