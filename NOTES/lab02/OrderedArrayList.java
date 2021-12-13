@@ -81,6 +81,17 @@ public class OrderedArrayList
   // uses a binary search to find appropriate index
   public void addBinary(Integer newVal)
   {
+	if (_data.size() < 2) {
+		if(_data.size() == 0) {
+			_data.add(newVal);
+		} else {
+			if(_data.get(0) > newVal) {
+				_data.add(0, newVal);
+			} else {
+				_data.add(newVal);
+			}
+		}
+} else {
   int middle = _data.size()/2;
   int increment = _data.size()/2;
   while( middle > 0 && middle < _data.size()-1) {
@@ -100,6 +111,7 @@ public class OrderedArrayList
   } else {
   	_data.add(newVal);
   }
+}
   }	
 
   // main method solely for testing purposes
