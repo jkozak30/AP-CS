@@ -25,9 +25,6 @@ public class OrderedArrayList
   public OrderedArrayList()
   {
   _data = new ArrayList<>();
-  for (int i=0; i<23; i++) {
-  	_data.add(i);
-  }
   }
 
   public String toString()
@@ -64,6 +61,9 @@ public class OrderedArrayList
   // uses a linear search to find appropriate index
   public void addLinear(Integer newVal)
   {
+	  if (_data.size() < 1) {
+		  _data.add(newVal);
+	  } else {
   for (int i=0; i<_data.size()-1; i++) {
   	if(_data.get(i) > newVal) {
   		_data.add(i, newVal);
@@ -73,6 +73,7 @@ public class OrderedArrayList
   if (_data.get(_data.size()-1) < newVal) {
   	_data.add(newVal);
   }
+	  }
   }
 
   // inserts newVal at the appropriate index
