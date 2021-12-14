@@ -84,31 +84,37 @@ public class OrderedArrayList
 	if (_data.size() < 2) {
 		if(_data.size() == 0) {
 			_data.add(newVal);
-		} else {
+		} else if (_data.size() == 1){
 			if(_data.get(0) > newVal) {
 				_data.add(0, newVal);
 			} else {
 				_data.add(newVal);
-			}
-		}
+			} } else {
+		if(_data.get(0) > newVal && _data.get(1) > newVal) {
+			_data.add(newVal);
+} else if (_data.get(0) > newVal) {
+	_data.add(1, newVal);
 } else {
+	_data.add(0, newVal);
+}
+} } else {
   int middle = _data.size()/2;
   int increment = _data.size()/2;
   while( middle > 0 && middle < _data.size()-1) {
-  	if(_data.get(middle) < newVal && _data.get(middle+1) > newVal) {
+  	if(_data.get(middle-1) < newVal && _data.get(middle) > newVal) {
   		_data.add(middle, newVal);
   		break;
-  	}  else if (_data.get(middle) > newVal){
-		increment = (increment +1)/2;
+  	}  else if (_data.get(middle-1) > newVal){
+		increment = (increment+1)/2;
   		middle -= increment;
   	} else {
-		increment = (increment +1)/2;
+		increment = (increment+1)/2;
   		middle += increment;
   	}
   }
   if (middle <= 0) {
   	_data.add(0, newVal);
-  } else {
+  } else if (middle >= _data.size()-1){
   	_data.add(newVal);
   }
 }
@@ -128,8 +134,10 @@ public class OrderedArrayList
 
     // testing binary search
     Franz = new OrderedArrayList();
-    for( int i = 0; i < 15; i++ ) 
+    for( int i = 0; i < 15; i++ ) { 
       Franz.addBinary( (int)( 50 * Math.random() ) );
+	System.out.println(Franz.toString());
+}
     System.out.println( Franz );
 
   }//end main()
