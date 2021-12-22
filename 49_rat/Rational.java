@@ -1,15 +1,15 @@
 /*
 Team Orange Marshmellows: Julia Kozak, Nina Jiang, Diana Akhmedova // Duckies: Flopsy, Miss Alpaca, Ajax
 APCS pd08
-HW42 -- Be More Rational
-2021-12-06
+HW49 -- Rational Standards Compliance
+2021-12-23
 Time Spent: 0.5 hrs
 */
 
 /*
-DISCO: set placeholder variables for the values in methods like gcd(), or else reduce will evaluate the method value multiple times;
-       would it be problematic to compare the floating point values of two Rationals, if they're equal (as in, could there be rounding errors)?
-QCC:   would it be possible to create a method that changes variable values for more than one instance (ex, multiply operates on both the calling and parameter instances)?
+DISCO: If an object uses the constructor of a certain class type, it can be typecasted as that class type.
+       Rational implementing Comparable means that Rational is a type of Comparable.
+QCC:   If asking to run .equals() with a non-Rational object throws an error, is there a way to have the proceeding calls in the main method still run?
 */
 
 public class Rational implements Comparable {
