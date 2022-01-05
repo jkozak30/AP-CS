@@ -1,27 +1,27 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// Team Rin-Sensei: Julia Kozak, Rin Fukuoka, John Gupta-She
+// APCS pd08
 // HW53 -- implementing insertion sort
 // 2022-01-06r
-// time spent:  hrs
+// time spent: 0.5 hrs
 
 /******************************
  * class InsertionSort -- implements InsertionSort algorithm
  *
- * ALGO:
- * 
- * DISCO
+ * ALGO: Start from the second element and determine whether the term to the left of it is a smaller value. If not, swap places with it. Repeat for the third value, or swap it towards the left until the term before it is a smaller value. Repeat for all terms until the end of the list.
+ * DISCO: "break" will only break out of the innermost loop.
+ *        Insertion Sort requires a pass for every element but the first.
  *
- * QCC
+ * QCC: Are there sorting algorithms that can fully sort in less than n-1  passes?
  * q0: How many passes to sort n elements?
- * a0: 
+ * a0: n passes are needed.
  * q1: What do you know after pass p?
- * a1: 
+ * a1: we know the first p elements are sorted.
  * q2: How will you know when sorted?
- * a2:
+ * a2: when all n elements have been run through / there are no more pairs of adjacent values that are in decreasing order.
  * q3: What constitues a pass?
- * a3:
+ * a3: a series of swaps that get the next element to its correct position in the sorted part of the ArrayList (increment of the first for loop).
  * q4: What must you track?
- * a4: 
+ * a4: the index of the next value you're positioning, and the value of the term directly before it on each swap.
  ******************************/
 
 
