@@ -1,5 +1,5 @@
 // Rin Fukuoka, Julia Kozak, John Gupta-She
-// APCS pd0
+// APCS pd08
 // HW52 -- implementing selection sort
 // 2022-01-05w
 // time spent:  0.5hrs
