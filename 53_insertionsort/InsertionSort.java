@@ -1,4 +1,4 @@
-// Team Rin-Sensei: Julia Kozak, Rin Fukuoka, John Gupta-She
+// Team Rin-Sensei: Julia Kozak, Rin Fukuoka, John Gupta-She (Duckies Flopsy, Tape, Po)
 // APCS pd08
 // HW53 -- implementing insertion sort
 // 2022-01-06r
