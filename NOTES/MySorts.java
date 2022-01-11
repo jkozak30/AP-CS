@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class MySorts {
-  public static void bubble( ArrayList<Comparable> data ) {
+  public static void bubbleSort( ArrayList<Comparable> data ) {
     for(int i = 0; i < data.size()-1; i++) {
 
     	for(int j = data.size() - 1; j > i; j--){
@@ -14,7 +14,7 @@ public class MySorts {
     }
   }
 
-  public static void selection( ArrayList<Comparable> data ) {
+  public static void selectionSort( ArrayList<Comparable> data ) {
     int minPos;
 
     for(int i=0; i<data.size()-1; i++) {
@@ -31,7 +31,7 @@ public class MySorts {
     }
   }
 
-  public static void insertion( ArrayList<Comparable> data ) {
+  public static void insertionSort( ArrayList<Comparable> data ) {
 
     for( int i=1; i<data.size(); i++ ) {
       for( int j=i; j>0; j-- ) {
