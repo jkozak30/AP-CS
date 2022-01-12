@@ -20,7 +20,26 @@ public class Magpie2
 	{
 		return "Hello, let's talk.";
 	}
-	
+
+
+	public static String trim(String statement) {
+		String result = "";
+		for (int i=0; i<statement.length(); i++) {
+			if (statement.substring(i, i+1).equals(" ")) {
+				result = statement.substring(i);
+			} else {
+				break;
+			}
+		}
+		for (int i=statement.length()-1; i<=0; i--) {
+			if (statement.substring(i, i+1).equals(" ")) {
+				result = result.substring(0, i);
+			} else {
+				break;
+			}
+		}
+		return result;
+	}
 	/**
 	 * Gives a response to a user statement
 	 * 
