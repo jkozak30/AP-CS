@@ -1,18 +1,18 @@
 /**
  * A program to carry on conversations with a human user.
- * This version: 
+ * This version:
  * <ul><li>
- *    Uses advanced search for keywords 
- * </li></ul> 
- *    
+ *    Uses advanced search for keywords
+ * </li></ul>
+ *
  * @author Laurie White
  * @version April 2012
  */
-public class Magpie3
+public class Magpie4
 {
 	/**
 	 * Get a default greeting
-	 * 
+	 *
 	 * @return a greeting
 	 */
 	public String getGreeting()
@@ -22,7 +22,7 @@ public class Magpie3
 
 	/**
 	 * Gives a response to a user statement
-	 * 
+	 *
 	 * @param statement
 	 *            the user statement
 	 * @return a response based on the rules given
@@ -34,37 +34,33 @@ public class Magpie3
 		{
 			response = "Say something, please.";
 		}
-		else if (findKeyword(statement, "no") >= 0)
+		else if (findKeyword(statement, "no", 0) >= 0)
 		{
 			response = "Why so negative?";
 		}
-		else if (findKeyword(statement, "mother") >= 0
-				|| findKeyword(statement, "father") >= 0
-				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0)
+		else if (findKeyword(statement, "mother", 0) >= 0
+				|| findKeyword(statement, "father", 0) >= 0
+				|| findKeyword(statement, "sister", 0) >= 0
+				|| findKeyword(statement, "brother", 0) >= 0)
 		{
 			response = "Tell me more about your family.";
 		}
-		else if (statement.indexOf("cat") >= 0
-				|| statement.indexOf("dog") >= 0
-				|| statement.indexOf("fish") >= 0
-				|| statement.indexOf("bird") >= 0)
+		else if (findKeyword(statement, "cat", 0) >= 0
+				|| findKeyword(statement, "dog", 0) >= 0
+				|| findKeyword(statement, "fish", 0) >= 0
+				|| findKeyword(statement, "bird", 0)) >= 0)
 		{
 			response = "Tell me more about your pet.";
 		}
-		else if (statement.indexOf("Mykolyk") >= 0)
+		else if (findKeyword(statement, "Mykolyk", 0) >= 0)
 		{
 			response = "He sounds like a good teacher.";
 		}
-		else if (statement.equals(""))
-		{
-			response = "Say something, please.";
-		}
-		else if (statement.indexOf("abc") >= 0)
+		else if (findKeyword(statement, "abc", 0) >= 0)
 		{
 			response = "abcdefghijklmnopqrstuvwxyz";
 		}
-		else if (statement.indexOf("hola") >= 0)
+		else if (findKeyword(statement, "hola", 0) >= 0)
 		{
 			response = "que paso?";
 		}
@@ -162,7 +158,7 @@ public class Magpie3
 	 * is not a substring of a longer string (so, for
 	 * example, "I know" does not contain "no"). The search
 	 * begins at the beginning of the string.
-	 * 
+	 *
 	 * @param statement
 	 *            the string to search
 	 * @param goal
@@ -177,7 +173,7 @@ public class Magpie3
 
 	/**
 	 * Pick a default response to use if nothing else fits.
-	 * 
+	 *
 	 * @return a non-committal string
 	 */
 	private String getRandomResponse()
@@ -225,4 +221,3 @@ Qs and As:
   - -1(iteration 1, before " ", after "s")
   - -1(iteration 1 "k" "w", i2 " " "t", i3 "s" "w")
 */
- 
