@@ -57,13 +57,13 @@ public class Magpie2
 		{
 			response = "Say something, please.";
 		}
-		else if (statement.indexOf("a") >= 0)
+		else if (statement.indexOf("abc") >= 0)
 		{
 			response = "abcdefghijklmnopqrstuvwxyz";
 		}
-		else if (statement.indexOf("Mykolyk") >= 0)
+		else if (statement.indexOf("hola") >= 0)
 		{
-			response = "He sounds like a good teacher.";
+			response = "que paso?";
 		}
 		else
 		{
@@ -111,3 +111,9 @@ public class Magpie2
 		return response;
 	}
 }
+
+/*
+Qs and As:
+- To prioritize a response in the reply method, put it earlier in the chain of else ifs in getResponse.
+- Statements that include a keyword within another word will reply with the message corresponding to that keyword anyway.
+*/
