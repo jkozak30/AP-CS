@@ -45,11 +45,53 @@ public class Magpie3
 		{
 			response = "Tell me more about your family.";
 		}
+		else if (statement.indexOf("cat") >= 0
+				|| statement.indexOf("dog") >= 0
+				|| statement.indexOf("fish") >= 0
+				|| statement.indexOf("bird") >= 0)
+		{
+			response = "Tell me more about your pet.";
+		}
+		else if (statement.indexOf("Mykolyk") >= 0)
+		{
+			response = "He sounds like a good teacher.";
+		}
+		else if (statement.equals(""))
+		{
+			response = "Say something, please.";
+		}
+		else if (statement.indexOf("abc") >= 0)
+		{
+			response = "abcdefghijklmnopqrstuvwxyz";
+		}
+		else if (statement.indexOf("hola") >= 0)
+		{
+			response = "que paso?";
+		}
 		else
 		{
 			response = getRandomResponse();
 		}
 		return response;
+	}
+
+	private String trim(String statement) {
+		String result = "";
+		for (int i=0; i<statement.length(); i++) {
+			if (statement.substring(i, i+1).equals(" ")) {
+				result = statement.substring(i);
+			} else {
+				break;
+			}
+		}
+		for (int i=statement.length()-1; i<=0; i--) {
+			if (statement.substring(i, i+1).equals(" ")) {
+				result = result.substring(0, i);
+			} else {
+				break;
+			}
+		}
+		return result;
 	}
 
 	/**
@@ -68,9 +110,7 @@ public class Magpie3
 	 * @return the index of the first occurrence of goal in
 	 *         statement or -1 if it's not found
 	 */
-	private int findKeyword(String statement, String goal,
-			int startPos)
-	{
+	public static int findKeyword(String statement, String goal, int startPos) {
 		String phrase = statement.trim().toLowerCase();
 		goal = goal.toLowerCase();
 
@@ -142,7 +182,7 @@ public class Magpie3
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -163,6 +203,14 @@ public class Magpie3
 		{
 			response = "You don't say.";
 		}
+		else if (whichResponse == 4)
+		{
+			response = "*laughs*";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "kekw";
+		}
 
 		return response;
 	}
@@ -171,5 +219,10 @@ public class Magpie3
 /*
 Qs and As:
 - indexOf returns -1 when the substring does not occur.
-- 
+- traces of findKeyword:
+  - 9 (iteration 1, before " ", after " ")
+  - 0 (iteration 1, before " ", after " ")
+  - -1(iteration 1, before " ", after "s")
+  - -1(iteration 1 "k" "w", i2 " " "t", i3 "s" "w")
 */
+ 
