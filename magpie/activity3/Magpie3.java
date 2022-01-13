@@ -8,7 +8,7 @@
  * @author Laurie White
  * @version April 2012
  */
-public class Magpie4
+public class Magpie3
 {
 	/**
 	 * Get a default greeting
@@ -48,7 +48,7 @@ public class Magpie4
 		else if (findKeyword(statement, "cat", 0) >= 0
 				|| findKeyword(statement, "dog", 0) >= 0
 				|| findKeyword(statement, "fish", 0) >= 0
-				|| findKeyword(statement, "bird", 0)) >= 0)
+				|| findKeyword(statement, "bird", 0) >= 0)
 		{
 			response = "Tell me more about your pet.";
 		}

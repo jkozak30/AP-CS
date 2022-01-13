@@ -1,29 +1,28 @@
 /**
  * A program to carry on conversations with a human user.
  * This version:
- *<ul><li>
- * 		Uses advanced search for keywords 
- *</li><li>
- * 		Will transform statements as well as react to keywords
- *</li></ul>
+ * <ul><li>
+ *    Uses advanced search for keywords
+ * </li></ul>
+ *
  * @author Laurie White
  * @version April 2012
- *
  */
 public class Magpie4
 {
 	/**
-	 * Get a default greeting 	
+	 * Get a default greeting
+	 *
 	 * @return a greeting
-	 */	
+	 */
 	public String getGreeting()
 	{
 		return "Hello, let's talk.";
 	}
-	
+
 	/**
 	 * Gives a response to a user statement
-	 * 
+	 *
 	 * @param statement
 	 *            the user statement
 	 * @return a response based on the rules given
@@ -35,97 +34,68 @@ public class Magpie4
 		{
 			response = "Say something, please.";
 		}
-
-		else if (findKeyword(statement, "no") >= 0)
+		else if (findKeyword(statement, "I want", 0) >= 0){
+			response = "Would you be really happy if you had " + statement.substring(findKeyword(statement, "I want", 0)+7);
+		}
+		else if (findKeyword(statement, "I", 0) >= 0 && findKeyword(statement, "I", 0) < findKeyword(statement, "you", 0)){
+			response = "Why do you" + statement.substring(findKeyword(statement, "I", 0)+1, findKeyword(statement, "you", 0)) + "me?";
+		}
+		else if (findKeyword(statement, "no", 0) >= 0)
 		{
 			response = "Why so negative?";
 		}
-		else if (findKeyword(statement, "mother") >= 0
-				|| findKeyword(statement, "father") >= 0
-				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0)
+		else if (findKeyword(statement, "mother", 0) >= 0
+				|| findKeyword(statement, "father", 0) >= 0
+				|| findKeyword(statement, "sister", 0) >= 0
+				|| findKeyword(statement, "brother", 0) >= 0)
 		{
 			response = "Tell me more about your family.";
 		}
-
-		// Responses which require transformations
-		else if (findKeyword(statement, "I want to", 0) >= 0)
+		else if (findKeyword(statement, "cat", 0) >= 0
+				|| findKeyword(statement, "dog", 0) >= 0
+				|| findKeyword(statement, "fish", 0) >= 0
+				|| findKeyword(statement, "bird", 0) >= 0)
 		{
-			response = transformIWantToStatement(statement);
+			response = "Tell me more about your pet.";
 		}
-
+		else if (findKeyword(statement, "Mykolyk", 0) >= 0)
+		{
+			response = "He sounds like a good teacher.";
+		}
+		else if (findKeyword(statement, "abc", 0) >= 0)
+		{
+			response = "abcdefghijklmnopqrstuvwxyz";
+		}
+		else if (findKeyword(statement, "hola", 0) >= 0)
+		{
+			response = "que paso?";
+		}
 		else
 		{
-			// Look for a two word (you <something> me)
-			// pattern
-			int psn = findKeyword(statement, "you", 0);
-
-			if (psn >= 0
-					&& findKeyword(statement, "me", psn) >= 0)
-			{
-				response = transformYouMeStatement(statement);
-			}
-			else
-			{
-				response = getRandomResponse();
-			}
+			response = getRandomResponse();
 		}
 		return response;
 	}
-	
-	/**
-	 * Take a statement with "I want to <something>." and transform it into 
-	 * "What would it mean to <something>?"
-	 * @param statement the user statement, assumed to contain "I want to"
-	 * @return the transformed statement
-	 */
-	private String transformIWantToStatement(String statement)
-	{
-		//  Remove the final period, if there is one
-		statement = statement.trim();
-		String lastChar = statement.substring(statement
-				.length() - 1);
-		if (lastChar.equals("."))
-		{
-			statement = statement.substring(0, statement
-					.length() - 1);
+
+	private String trim(String statement) {
+		String result = "";
+		for (int i=0; i<statement.length(); i++) {
+			if (statement.substring(i, i+1).equals(" ")) {
+				result = statement.substring(i);
+			} else {
+				break;
+			}
 		}
-		int psn = findKeyword (statement, "I want to", 0);
-		String restOfStatement = statement.substring(psn + 9).trim();
-		return "What would it mean to " + restOfStatement + "?";
+		for (int i=statement.length()-1; i<=0; i--) {
+			if (statement.substring(i, i+1).equals(" ")) {
+				result = result.substring(0, i);
+			} else {
+				break;
+			}
+		}
+		return result;
 	}
 
-	
-	
-	/**
-	 * Take a statement with "you <something> me" and transform it into 
-	 * "What makes you think that I <something> you?"
-	 * @param statement the user statement, assumed to contain "you" followed by "me"
-	 * @return the transformed statement
-	 */
-	private String transformYouMeStatement(String statement)
-	{
-		//  Remove the final period, if there is one
-		statement = statement.trim();
-		String lastChar = statement.substring(statement
-				.length() - 1);
-		if (lastChar.equals("."))
-		{
-			statement = statement.substring(0, statement
-					.length() - 1);
-		}
-		
-		int psnOfYou = findKeyword (statement, "you", 0);
-		int psnOfMe = findKeyword (statement, "me", psnOfYou + 3);
-		
-		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe).trim();
-		return "What makes you think that I " + restOfStatement + " you?";
-	}
-	
-	
-
-	
-	
 	/**
 	 * Search for one word in phrase. The search is not case
 	 * sensitive. This method will check that the given goal
@@ -142,9 +112,7 @@ public class Magpie4
 	 * @return the index of the first occurrence of goal in
 	 *         statement or -1 if it's not found
 	 */
-	private int findKeyword(String statement, String goal,
-			int startPos)
-	{
+	public static int findKeyword(String statement, String goal, int startPos) {
 		String phrase = statement.trim().toLowerCase();
 		goal = goal.toLowerCase();
 
@@ -189,33 +157,38 @@ public class Magpie4
 
 		return -1;
 	}
-	
+
 	/**
-	 * Search for one word in phrase.  The search is not case sensitive.
-	 * This method will check that the given goal is not a substring of a longer string
-	 * (so, for example, "I know" does not contain "no").  The search begins at the beginning of the string.  
-	 * @param statement the string to search
-	 * @param goal the string to search for
-	 * @return the index of the first occurrence of goal in statement or -1 if it's not found
+	 * Search for one word in phrase. The search is not case
+	 * sensitive. This method will check that the given goal
+	 * is not a substring of a longer string (so, for
+	 * example, "I know" does not contain "no"). The search
+	 * begins at the beginning of the string.
+	 *
+	 * @param statement
+	 *            the string to search
+	 * @param goal
+	 *            the string to search for
+	 * @return the index of the first occurrence of goal in
+	 *         statement or -1 if it's not found
 	 */
 	private int findKeyword(String statement, String goal)
 	{
-		return findKeyword (statement, goal, 0);
+		return findKeyword(statement, goal, 0);
 	}
-	
-
 
 	/**
 	 * Pick a default response to use if nothing else fits.
+	 *
 	 * @return a non-committal string
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
-		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
+		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
-		
+
 		if (whichResponse == 0)
 		{
 			response = "Interesting, tell me more.";
@@ -232,8 +205,20 @@ public class Magpie4
 		{
 			response = "You don't say.";
 		}
+		else if (whichResponse == 4)
+		{
+			response = "*laughs*";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "kekw";
+		}
 
 		return response;
 	}
 
 }
+/*
+Qs and As:
+- 
+*/
