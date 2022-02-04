@@ -1,7 +1,7 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// Julia Kozak, Nafiz Labib, Gloria Lee (Flopsy, Martha, Flounder)
+// APCS pd08
 // L05 -- pulling it together
-// 2022-02-03r
+// 2022-02-03
 // time spent:  hrs
 
 /***
