@@ -1,9 +1,10 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// Great, Nice Jingles: Julia Kozak, Gloria Lee, Nafiz Labib (Flopsy, Flounder, Martha)
+// APCS pd08
 // L05 -- pulling it together
-// 2022-02-03r
-// time spent:  hrs
+// 2022-02-03
+// time spent: 1.5 hrs
 
+// Note: Big O run times are in notes.txt!
 
 /**
    An AP-style question, for practice...

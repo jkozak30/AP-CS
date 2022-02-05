@@ -1,8 +1,8 @@
-// Julia Kozak, Nafiz Labib, Gloria Lee (Flopsy, Martha, Flounder)
+// Great, Nice Jingles: Julia Kozak, Nafiz Labib, Gloria Lee (Flopsy, Martha, Flounder)
 // APCS pd08
 // L05 -- pulling it together
 // 2022-02-03
-// time spent:  hrs
+// time spent:  1.5 hrs
 
 /***
  * class StatPrinterApp

@@ -1,24 +1,32 @@
-
-Team Phantom Tollbooth ()
-APCS pd0
+Great Nice Jingles (Nafiz Labib + Martha, Julia Kozak + Flopsy, Gloria Lee + Flounder)
+APCS pd8
 L05 -- pulling it together
 2022-02-03r
-time spent:  hrs
+time spent: 1.5 hrs
 
 
 DISCO
 ------------------------------------------------
-*
+* We shouldn't set the ArrayList's size to max(size)+1, rather we should omit it at initialization and simply add at the end.
+* We used a for loop in the frequency list to correctly print out the right number of stars for each number.
+
+RUNTIME CLASSIFICATIONS
+* constructor: O(n^2), as it will vary depending on the maximum element as well as the length of the data ArrayList
+* max: O(n), it is linear depending on the length of the data ArrayList
+* isLocalMode: O(1), as it is retrieving values in the same way, independent of the size of the ArrayList
+* getLocalModes: O(n), since it is linear depending on the size of _frequency
+* printHistogram: O(n^2), as runtime will depend on both the length of the _frequency ArrayList as well as the length of longestBar
 ================================================
 
 
 QCC
 ------------------------------------------------
-*
+* Why can't we initialize an ArrayList size in the constructor (and why does it compile if we put an integer as the parameter of the constructor)?
+* What should the program do if the ratio between longestBar and max is fractional?
 ================================================
 
 
 MISC
 ------------------------------------------------
-*
+* Lab is cool.
 ================================================
