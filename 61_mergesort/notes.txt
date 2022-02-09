@@ -1,0 +1,24 @@
+Great, Nice Jingles: Julia Kozak, Gloria Lee, Nafiz Labib (Flopsy, Flounder, Martha)
+APCS - pd08
+HW60 -- A Termite is-a Turtle, a Thinker is-a Turtle
+2022-02-08
+time spent: 0.6hrs
+
+DISCO:
+* This algorithm is recursive, so in class, if a thinker received a pile of >1 cards, they would split it again. This part of the process would terminate once the final people each receive one card.
+* Once a thinker was given a pile of 1 card, they would return that card to whoever gave it to them.
+* The person who receives the two cards will perform what we discussed earlier in class, where they check the first element of each set, and add whatever the lowest of the two was to the end of its list, remove it from the sorted list it started in, and repeat until all cards are in one list.
+* In java, you could have a recursive method that divides the list in two and calls itself on the two halves, and somewhere at the end of each iteration it will merge the two sets.
+* This process is O(nlog(n)), since the total number of processes of dividing cards among people can be at most ceil(log_2(n)), so you'll merge at most that many times. Then on each merge, at each comparison you're adding one new value to your merged set of cards, so it ends up being n comparisons for each merge. So, we have nlog(n) comparisons made. 
+
+QCC:
+* For our example in class, how would you work with the case of someone receiving a new set of cards (from a previous step) while already merging two?
+* Can splitting sets of cards be considered a timely process (as in for java, does this add to runtime at all)?
+
+THINKER FIRMWARE:
+* When you first receive a set of cards, if it has >1 cards, split it in half and give it to two new people. If it has one card, give the card back to the person who gave it to you.
+* (Assuming no one person is receiving multiple decks to split) when you are returned two decks of the sizes you split them in, merge them by:
+  * Taking the first elements of your two sets, in the order they were given, and comparing them. 
+  * Adding the lesser element of the two to the end of a new set for merging.
+  * Repeating for the two remaining sets until one is empty, in which case you can add the rest of the cards to the end of your merged set.
+* Then hand the merged set back to whoever first gave it to you.
