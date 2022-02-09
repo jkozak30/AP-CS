@@ -1,3 +1,9 @@
+// Great, Nice Jingles: Julia Kozak, Nafiz Labib, Gloria Lee (Flopsy, Martha, Flounder)
+// APCS pd08
+// HW61: Instructions so Simple...
+// 2022-02-09
+// time spent: 0.5hrs
+
 /***
   class MergeSort
   Implements mergesort on array of ints.
@@ -17,6 +23,30 @@ public class MergeSort
    ******************************************************/
   private static int[] merge( int[] a, int[] b )
   {
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int mergeSize = a.length + b.length;
+    int[] ret = new int[mergeSize];
+    while (i<mergeSize) {
+      if (j < a.length && k < b.length) {
+        if (a[j] > b[k]) {
+          ret[i] = b[k];
+          k++;
+        } else {
+          ret[i] = a[j];
+          j++;
+        }
+      } else if (j >= a.length) {
+        ret[i] = b[k];
+        k++;
+      } else {
+        ret[i] = a[j];
+        j++;
+      }
+      i++;
+    }
+    return ret;
 
   }//end merge()
 
@@ -28,7 +58,23 @@ public class MergeSort
    ******************************************************/
   public static int[] sort( int[] arr )
   {
-
+    int[] ret;
+    if (arr.length == 1) {
+      return arr;
+    } else {
+      int[] temp1 = new int[arr.length / 2];
+      int[] temp2 = new int[arr.length - arr.length / 2];
+      for (int i=0; i<arr.length/2; i++) {
+        temp1[i] = arr[i];
+      }
+      for (int i=arr.length/2; i<arr.length; i++) {
+        temp2[i-arr.length/2] = arr[i];
+      }
+      int[] sorted1 = sort(temp1);
+      int[] sorted2 = sort(temp2);
+      ret = merge(sorted1, sorted2);
+    }
+    return ret;
   }//end sort()
 
 
@@ -54,7 +100,6 @@ public class MergeSort
   //main method for testing
   public static void main( String [] args )
   {
-    /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
       int[] arr0 = {0};
       int[] arr1 = {1};
       int[] arr2 = {1,2};
@@ -80,7 +125,6 @@ public class MergeSort
       printArray( sort( arr5 ) );
       printArray( sort( arr6 ) );
       printArray( sort( arr7 ) );
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
 }//end class MergeSort

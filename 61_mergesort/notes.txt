@@ -5,6 +5,7 @@ HW60 -- A Termite is-a Turtle, a Thinker is-a Turtle
 time spent: 0.6hrs
 
 DISCO:
+* What we did in class with the cards is the merge sort method we discussed (with human problems).
 * This algorithm is recursive, so in class, if a thinker received a pile of >1 cards, they would split it again. This part of the process would terminate once the final people each receive one card.
 * Once a thinker was given a pile of 1 card, they would return that card to whoever gave it to them.
 * The person who receives the two cards will perform what we discussed earlier in class, where they check the first element of each set, and add whatever the lowest of the two was to the end of its list, remove it from the sorted list it started in, and repeat until all cards are in one list.
@@ -21,4 +22,5 @@ THINKER FIRMWARE:
   * Taking the first elements of your two sets, in the order they were given, and comparing them. 
   * Adding the lesser element of the two to the end of a new set for merging.
   * Repeating for the two remaining sets until one is empty, in which case you can add the rest of the cards to the end of your merged set.
-* Then hand the merged set back to whoever first gave it to you.
+* Once you finally have one list, return deck to sender.
+* Rinse, wash repeat, until there is only 1 person holding one deck.
