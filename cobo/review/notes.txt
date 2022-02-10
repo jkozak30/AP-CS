@@ -1,0 +1,16 @@
+Julia Kozak
+APCS pd08
+cobo lab 010_review
+2022-02-11
+
+1a. public static double sentimentVal(String word){}
+1b. The method requires a String parameter. If you try to pass a different parameter, the program won't compile because it is required by the method.
+1c. The method returns a double.
+
+2. sentimentVal("hi") //1.25
+   sentimentVal("great") //1.48
+   sentimentVal("yes") //0.92
+
+3a. It will compile, because sentimentVal will return a double that can be assigned as the value of a double variable.
+3b. It will not compile, because sentimentVal will return a double, and this cannot be assigned to a String. Also, the method sentimentVal cannot take a double parameter
+3c. It will not compile, because sentimentVal takes one parameter.
