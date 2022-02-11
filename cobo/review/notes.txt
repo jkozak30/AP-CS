@@ -3,6 +3,7 @@ APCS pd08
 cobo lab 010_review
 2022-02-11
 
+ACTIVITY 1
 1a. public static double sentimentVal(String word){}
 1b. The method requires a String parameter. If you try to pass a different parameter, the program won't compile because it is required by the method.
 1c. The method returns a double.
@@ -14,3 +15,9 @@ cobo lab 010_review
 3a. It will compile, because sentimentVal will return a double that can be assigned as the value of a double variable.
 3b. It will not compile, because sentimentVal will return a double, and this cannot be assigned to a String. Also, the method sentimentVal cannot take a double parameter
 3c. It will not compile, because sentimentVal takes one parameter.
+
+ACTIVITY 2
+4. totalSentiment works by taking an input that is a file name with the review. It uses split to create an array of the words in the file, each as separate Strings. Then, it iterates through each item of the array to remove punctuation, and add the sentimentVal of the String to a total sum. The total sum is returned as the totalSentiment.
+5a. The ratings make sense, except a longer rating that expresses a moderate opinion might get a better rating than a short, positive rating because totalSentiment just adds all sentiments.
+5b. We can improve this by averaging the sentiments of all the words rather than adding them, that way it is clearer that overall, a sentiment is negative or positive.
+6. His logical error is that for all (else if) cases after the first, their condition is already included in (totalSentiment < 15). So, either the totalSentiment is <15 and 4 is returned, or it is >= 15 and 0 is returned. This can be fixed by starting from the case of (totalSentiment < 0), then going upwards from that (next (totalSentiment < 5), etc.).

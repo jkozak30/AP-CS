@@ -163,9 +163,39 @@ public class Review {
     }
   }
 
+  public static double totalSentiment(String fileName) {
+    String fileToString = textToString(fileName);
+    String[] words = fileToString.split(" ");
+    double sum = 0;
+    for (String a : words) {
+     String aN = removePunctuation(a);
+      // System.out.println(aN); //RM FOR TESTING
+      // System.out.println(sentimentVal(aN));
+      sum += sentimentVal(aN);
+    }
+    return sum;
+  }
+
+  public static int starRating(String fileName) {
+    double rating = totalSentiment(fileName);
+    if (rating < 0) {
+      return 1;
+    } else if (rating < 10) {
+      return 2;
+    } else if (rating < 20) {
+      return 3;
+    } else if (rating < 30) {
+      return 4;
+    } else {
+      return 5;
+    }
+  }
+
   public static void main(String[] args) {
     System.out.println(sentimentVal("hi"));
     System.out.println(sentimentVal("great"));
     System.out.println(sentimentVal("yes"));
+    System.out.println(totalSentiment("SimpleReview.txt"));
+    System.out.println(starRating("SimpleReview.txt"));
   }
 }
