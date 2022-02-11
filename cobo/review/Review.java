@@ -191,11 +191,28 @@ public class Review {
     }
   }
 
+  public static String fakeReview(String fileName) {
+    String ret = "";
+    String fileToString = textToString(fileName);
+    String[] words = fileToString.split(" ");
+    for (int i=0; i<words.length; i++) {
+      if (words[i].substring(0, 1).equals("*")) {
+        words[i] = randomAdjective();
+      }
+    }
+    for (String a : words) {
+      ret = ret + a + " ";
+    }
+    ret = ret.substring(0, ret.length()-1);
+    return ret;
+  }
+
   public static void main(String[] args) {
     System.out.println(sentimentVal("hi"));
     System.out.println(sentimentVal("great"));
     System.out.println(sentimentVal("yes"));
     System.out.println(totalSentiment("SimpleReview.txt"));
     System.out.println(starRating("SimpleReview.txt"));
+    System.out.println(fakeReview("SimpleReview.txt"));
   }
 }
