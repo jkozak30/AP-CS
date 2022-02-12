@@ -191,13 +191,26 @@ public class Review {
     }
   }
 
-  public static String fakeReview(String fileName) {
+  public static String fakeReview(String fileName, boolean isPos) { //for pos/neg review
     String ret = "";
     String fileToString = textToString(fileName);
     String[] words = fileToString.split(" ");
     for (int i=0; i<words.length; i++) {
       if (words[i].substring(0, 1).equals("*")) {
-        words[i] = randomAdjective();
+        String wordsN = removePunctuation(words[i]);
+	if (isPos) {
+	  if (sentimentVal(wordsN) < 0) {
+	    words[i] = randomPositiveAdj() + getPunctuation(words[i]);
+	  } else {
+	    words[i] = words[i].substring(1);
+	  }
+	} else {
+	  if (sentimentVal(wordsN) >= 0) {
+	    words[i] = randomNegativeAdj() + getPunctuation(words[i]);
+	  } else {
+	    words[i] = words[i].substring(1);
+	  }
+	}
       }
     }
     for (String a : words) {
@@ -213,6 +226,6 @@ public class Review {
     System.out.println(sentimentVal("yes"));
     System.out.println(totalSentiment("SimpleReview.txt"));
     System.out.println(starRating("SimpleReview.txt"));
-    System.out.println(fakeReview("SimpleReview.txt"));
+    System.out.println(fakeReview("SimpleReview2.txt", false));
   }
 }
