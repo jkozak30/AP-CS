@@ -34,3 +34,11 @@ ACTIVITY 4
 5. It will return the String oneWord, but with its first character removed.
 6. You must remove the "*" because the sentimentVal method directly compares the imput String to the elements of cleanSentiment, which does not include punctuation, so it'll always return neutral if there is any punctuation.
 7. The method could increase the threshold for changing an adjective (ex. it now checks if a given adjective has sentimentVal > 0.5). Then, it'll replace all adjectives with lower sentimentVal with one of the super positive adjectives in positiveAdjectives.txt.
+
+ACTIVITY 5
+1. It's interactive and implements a lot of the ideas from the lab activities.
+2. We planned out what methods we would need for each step, such as assigning a random word or processing a guess, and built each method one by one and testing it with print statements.
+3. static boolean checkInput(String s) {
+  - This method takes a String that is whatever is input by the user, since the user will input either a letter or a guess. Since it wants to ensure that the input is valid, it checks the length to make sure it is either a single character (length 1) or a guess (length of the phrase). It is static because the methods are each being called in main independent of an instance, so it would throw errors otherwise.
+4. if (s.toLowerCase().equals(guess.toLowerCase().substring(0, guess.length()-1))) {
+  - toLowerCase(), equals(), substring(), and length() are being called here. toLowerCase() is returning each String involved in its lowercase form, so guesses aren't case sensitive. equals() 
