@@ -1,4 +1,4 @@
-Julia Kozak
+Great, Nice Jingles: Julia Kozak, Gloria Lee, Nafiz Labib (Flopsy, Flounder, Martha)
 APCS pd08
 cobo lab 010_review
 2022-02-11
@@ -40,5 +40,55 @@ ACTIVITY 5
 2. We planned out what methods we would need for each step, such as assigning a random word or processing a guess, and built each method one by one and testing it with print statements.
 3. static boolean checkInput(String s) {
   - This method takes a String that is whatever is input by the user, since the user will input either a letter or a guess. Since it wants to ensure that the input is valid, it checks the length to make sure it is either a single character (length 1) or a guess (length of the phrase). It is static because the methods are each being called in main independent of an instance, so it would throw errors otherwise.
-4. if (s.toLowerCase().equals(guess.toLowerCase().substring(0, guess.length()-1))) {
-  - toLowerCase(), equals(), substring(), and length() are being called here. toLowerCase() is returning each String involved in its lowercase form, so guesses aren't case sensitive. equals() 
+4. static void checkWin(String s) {
+    if (s.toLowerCase().equals(guess.toLowerCase().substring(0, guess.length()-1))) {
+      win = true;
+    }
+  }
+  - toLowerCase(), equals(), substring(), and length() are being called here. toLowerCase() is returning each String involved in its lowercase form, so guesses aren't case sensitive. equals() is comparing the object values of the two Strings and returning a boolean. subtring() is returning a part of the String from a start and end index. length() is returning an integer number of characters in the String.
+5. One code segment that uses nested conditional statements or compound boolean expressions:
+
+    static boolean checkInput(String s) {
+      if (s.length() == 1 || s.length() == display.length()-1) {
+       return true;
+      } else {
+      return false;
+      }
+    }
+
+    Compound boolean expressions are used here. Another way to write this code to achieve the same result would be:
+
+    static boolean checkInput(String s) {
+      if(s.length == 1){
+        return true;
+      } else if( s.length() == display.length()-1) {
+        return true;
+      } else{
+        return false;
+      }
+    }
+
+6. One code segment that uses iteration:
+
+static void updateDisplayChar(String s) {
+    for (int i=0; i<display.length()-1; i++) {
+      if (guess.toLowerCase().substring(i, i+1).equals(s)) {
+        display = display.substring(0, i) + guess.substring(i, i+1) + display.substring(i+1);
+      }
+    }
+  }
+
+  This is a for loop that goes through each letter of your guess statement. Any letter that is correct will be part of the returned String display that appears on screen.
+
+  Another way to write this using another type of loop would be:
+
+
+  static void updateDisplayChar(String s){
+    int i = 0;
+    while(i<display.length()-1){
+      if (guess.toLowerCase().substring(i, i+1).equals(s)) {
+        display = display.substring(0, i) + guess.substring(i, i+1) + display.substring(i+1);
+      }
+      i++;
+    }
+  }
