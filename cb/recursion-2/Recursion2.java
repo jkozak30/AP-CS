@@ -1,3 +1,8 @@
+/* Dunking Ducks (Humans: Daniel, Julia; Ducks: Ralph, Flopsy)
+APCS
+HW64: Revisitation
+2022 02 14
+*/
 public class Recursion2 {
 
   public static boolean groupSum(int start, int[] nums, int target) {
