@@ -35,10 +35,40 @@ public class Recursion {
     }
   }
 
+  public static int countX(String str) {
+    if (str.length() <= 1) {
+      if (str.equals("x")) {
+        return 1;
+      } else {
+        return 0;
+      }
+    } else {
+      if (str.substring(0, 1).equals("x")) {
+        return 1 + countX(str.substring(1));
+      } else {
+        return countX(str.substring(1));
+      }
+    }
+  }
+
+  public static String changePi(String str) {
+    if (str.length() <= 1) {
+      return str;
+    } else {
+      if (str.substring(0,2).equals("pi")) {
+        return "3.14" + changePi(str.substring(2));
+      } else {
+        return str.substring(0, 1) + changePi(str.substring(1));
+      }
+    }
+  }
+
   public static void main(String[] args) {
     System.out.println(factorial(3));
     System.out.println(bunnyEars2(4));
     System.out.println(count7(10));
+    System.out.println(countX("xxxa"));
+    System.out.println(changePi("sdfpisdfpisdfpi"))
   }
 
 }
