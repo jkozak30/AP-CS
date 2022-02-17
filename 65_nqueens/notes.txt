@@ -1,0 +1,10 @@
+Great, Nice Jingles: Julia Kozak, Nafiz Labib, Gloria Lee (Flopsy, Martha, Flounder)
+APCS pd08
+HW65: How Many Queens Can a Thinker Place, If a Thinker Can Place Queens…
+2022-02-17
+
+- We can use iteration and recursion to solve this; the method solveH() iterates on each possible position of a Queen in a given column, and backtracks and re-places a Queen if it finds no solutions for the given arrangement.
+- From kts:
+  - Methods addQueen and removeQueen only increment/decrement attacked squares that are in columns to the right of the given one, so we recurse from the left.
+  - printSolution occurs once col = _board.length-1, since it has placed all Queens then
+- Is there a way to modify the solve method to print all possible solutions? Our version currently just checks if it's possible given the placement of the earliest square in the row, and returns true and prints the board once it finds one.
