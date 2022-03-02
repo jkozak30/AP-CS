@@ -60,7 +60,7 @@ public class KnightTour
     TourFinder tf = new TourFinder( n );
 
     //clear screen using ANSI control code
-    System.out.println( "" );
+    System.out.println( "[2J" );
 
     //display board
     System.out.println( tf );
@@ -139,7 +139,7 @@ class TourFinder
   public String toString()
   {
     //send ANSI code "ESC[0;0H" to place cursor in upper left
-    String retStr = "0H";
+    String retStr = "[0;0H";
     //emacs shortcut: C-q, then press ESC
     //emacs shortcut: M-x quoted-insert, then press ESC
 
@@ -198,7 +198,7 @@ class TourFinder
 
       //mark current cell with current move number
       _board[x][y] = moves;
-      //delay(500);
+      delay(500);
 
       System.out.println( this ); //refresh screen
 
@@ -226,7 +226,7 @@ class TourFinder
       //If made it this far, path did not lead to tour, so back up...
       // (Overwrite number at this cell with a 0.)
       _board[x][y] = 0;
-      //delay(125);
+      delay(125);
       //return;
 
       System.out.println( this ); //refresh screen
