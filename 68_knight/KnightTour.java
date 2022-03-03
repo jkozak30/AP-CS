@@ -60,7 +60,7 @@ public class KnightTour
     TourFinder tf = new TourFinder( n );
 
     //clear screen using ANSI control code
-    System.out.println( " [2J" );
+    System.out.println( "\u001b[2J" );
 
     //display board
     System.out.println( tf );
@@ -139,7 +139,7 @@ class TourFinder
   public String toString()
   {
     //send ANSI code "ESC[0;0H" to place cursor in upper left
-    String retStr = " [0;0H";
+    String retStr = "\u001b[0;0H";
     //emacs shortcut: C-q, then press ESC
     //emacs shortcut: M-x quoted-insert, then press ESC
 
