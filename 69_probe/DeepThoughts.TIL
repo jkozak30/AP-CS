@@ -1,0 +1,33 @@
+Red Lobsters: Faiyaz Rafee, Julia Kozak
+APCS pd8
+HW69 -- Making sense/ Knight Tour 
+2022-03-02
+time spent: 0.8 hrs
+
+Mean Execution Times with Print Statements
+n=5   7.77s       across 10 executions
+n=6   47.23s      across 3 executions
+n=7   1931.13s    across 1 executions 
+n=8   654.92s     across 1 executions
+
+Mean Execution Times without Print Statements
+n=5   .134s    across 1 execution
+n=6   .205s    across 1 execution
+n=7   .261s    across 1 execution
+n=8   .291s    across 1 execution
+
+q0: From any starting position, can an open tour always be found? Explain.
+ - We don't necessarily know without testing/analyzing each starting position, because the starting/ending squares are the unique squares that have one move going from/to them, which will vary from each starting square.
+q1: Same, but for closed tour.
+ - Given that we know one exists, we can then conclude one exists for any starting position because you can start from anywhere on the cycle to get back to where you originally were. Similarly, if there isn't one from a specific square, we know there exist no closed loops on the board.
+q2: How do you explain the increase in execution time as n increases?
+ - The runtime is exponential as the program must check 8 moves for every previous move, and it's working through this for nearly every square on the board (until it backtracks, then repeats on a different move). For larger boards, an earlier wrong move will be costly because the program has to work through several longer branches with more possibilities before backtracking. For smaller boards, knights have more limited number of possible moves, which would make it run much faster.
+q3: Thoughts on optimization?
+ - Getting rid of print statements that show the proces speeds up the run time significantly as printing, clearing and reprinting potentially tens of thousands of times greatly increases run time.
+ - Not entirely sure, but one idea is to include some array that keeps track of the number of moves that can be made to each square, and if at any point there is an unvisited square that has 0 moves that can be made to it, we know to backtrack earlier.
+ - Maybe have a way to track down ending moves when finding a tour so it can reference that to solve a tour instanlty if it finds a similar situation.
+ 
+State your cleanest algo for finding your way out of a maze (of the “2D” style discussed in class).
+ - For each square that you go to, mark it as visited (so that you're not revisiting squares), and check if it is your goal. If it is, you're done.
+ - If it's not the goal, check the number of possible options of where you can move next (the number of adjacent squares that are also paths, and unvisited).
+ - If the number of potential moves is 0 at any point, return until the previous square for which you could make a different move, and try the next possible move.
