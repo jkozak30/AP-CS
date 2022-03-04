@@ -150,10 +150,10 @@ class MazeSolver
     //after marking current location
     else {
       _maze[x][y] = '@';
-      solve(x, y+1);
+      solve(x, y-1);
       solve(x+1, y);
       solve(x-1, y);
-      solve(x, y-1);
+      solve(x, y+1);
       System.out.println( this ); //refresh screen
       delay(FRAME_DELAY);
       _maze[x][y] = '.';
