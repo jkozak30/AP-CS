@@ -54,6 +54,7 @@ public class LLNode
     String ret = cargo;
     if (next != null) {
       ret += " ";
+      ret += this.next.toString();
     }
     return ret;
   }
@@ -74,19 +75,28 @@ public class LLNode
     //Create a third node after the second
     first.getNext().setNext( new LLNode( "cow", null ) );
 
-    /* A naive list traversal, has side effects.... ?? */
-    System.out.print("( ");
+    /* A naive list traversal, has side effects.... ??
        while( first != null ) {
        System.out.print( first );
        first = first.getNext();
        }
-       System.out.println(" )");
+       */
+    //System.out.println(first.getNext());
 
 
     //Q: when head ptr moves to next node in list, what happens to the node it just left?
+    // That node becomes null (first gets set to null and you can no longer reference it)
 
-    // that node is not revisited, because it was the destination of one node before, and
-    // been directed to its next node.
+    //...so better: ?
+    // create a new reference
+    LLNode current = first;
+    while (current != null) {
+      System.out.println( current );
+      current = current.getNext();
+    }
+    System.out.println(first);
+    System.out.println(first.getNext());
+    System.out.println(first.getNext().getNext());
 
   }//end main
 
