@@ -1,3 +1,9 @@
+//Under Pressure: Julia Kozak, Yat Long Chan, Anjini Katari
+//APCS pd08
+//HW75 -- Nodal Recall
+//2022-03-14
+//time spent: 0.5h
+
 /***
  * class LLNode
  * Implements a node, for use in lists and other container classes.
@@ -51,11 +57,12 @@ public class LLNode
   // override inherited toString
   public String toString()
   {
-    String ret = cargo;
+    String ret = "[" + cargo;
     if (next != null) {
       ret += " ";
       ret += this.next.toString();
     }
+    ret += "] ";
     return ret;
   }
 
