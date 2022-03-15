@@ -3,6 +3,7 @@
 // HW77 -- Insert|Remove
 // 2022-03-16
 // time spent: 0.6hrs
+// KTS used: 2
 
 /*
   DISCO:    - Objects can be redefined in terms of themselves (ex. for add(newVal), you don't have
@@ -13,12 +14,12 @@
 
   QCC:      - Is there any way to work around NullPointerExceptions without creating a separate case?
 
-  ALGO ADD: If the index being added at is 0, call add(newVal). Otherwise, set LLNode temp as a new
+  algo add: If the index being added at is 0, call add(newVal). Otherwise, set LLNode temp as a new
             reference to _head, and set it to the next node until it is at position index-1. Then
             let temp direct to a new node with the newVal as its cargo, and let that new node direct
             to the rest of the list. Lastly, increment _size.
 
-  ALGO REM: If the _size is 1, reset the _head to null and decrement _size. Otherwise, create a new
+  algo rem: If the _size is 1, reset the _head to null and decrement _size. Otherwise, create a new
             reference to _head, temp, and set it to each next node until it is at position index-1.
             Set the next node for temp to the node two ahead of it, and decrement _size.
 
