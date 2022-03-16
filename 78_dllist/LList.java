@@ -37,12 +37,14 @@ public class LList implements List //your List interface must be in same dir
 
   //instance vars
   private DLLNode _head;
+  private DLLNode _tail;
   private int _size;
 
   // constructor -- initializes instance vars
   public LList( )
   {
     _head = null; //at birth, a list has no elements
+    _tail = null;
     _size = 0;
   }
 
@@ -54,6 +56,12 @@ public class LList implements List //your List interface must be in same dir
     DLLNode tmp = new DLLNode( newVal, _head );
     _head = tmp;
     _head.setPrev(null);
+
+    if (_size == 0) {
+      _head.setNext(_tail);
+    }
+
+
     _size++;
     return true;
   }
