@@ -1,0 +1,36 @@
+Questions/Answers
+
+Activity 2
+1.  A card is an object that doesn't change once it is initialized, 
+    and it can be compared to other cards. A deck holds numerous cards
+    and can perform operations with the set of cards it has, such as
+    shuffling or dealing.
+2.  It'll have ranks.length * suits.length = 6 cards.
+3.  ranks will look like {"Two", "Three", ... , "Ten", "Jack", "Queen", "King", "Ace"}
+    suits will look like {"Clubs", "Diamonds", "Hearts", "Spades"}
+    values will look like {2, 3, ..., 10, 10, 10, 10, 11}
+4.  suits won't matter, but ranks and values will depend on each other 
+    because the order of values must correspond to the order of ranks.
+
+Activity 3
+1.  public static String flip() {
+        double ht = Math.random();
+        if (ht > 2.0/3) {
+            return "tails";
+        } else {
+            return "heads";
+        }
+    }
+2.  public static boolean arePermutations(int[] one, int[] two) {
+        for (int i=0; i<one.length; i++) {
+            int thingCtr = 0;
+            for (int j=0; j<one.length; j++) {
+                if (one[i] == two[j]) {
+                    thingCtr++;
+                }
+            }
+            if (thingCtr == 0) { return false; }
+        }
+        return true;
+    }
+3.  The sequence would be 3, 2, 2, 3.

@@ -30,7 +30,7 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		cards = new List<Card>();
+		cards = new ArrayList<Card>();
 		size = 0;
 
 		for (int i=0; i<ranks.length; i++) {
@@ -57,6 +57,7 @@ public class Deck {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
+		return size;
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 	}
 
