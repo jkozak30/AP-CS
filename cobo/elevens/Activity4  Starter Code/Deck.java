@@ -60,7 +60,7 @@ public class Deck {
 	/**
 	 * Randomly permute the given collection of cards
 	 * and reset the size to represent the entire deck.
-	 */
+	 */ 
 	public void shuffle() {
 		for (int i=0; i<size; i++) {
 			int swapper = (int)(Math.random() * size);

@@ -50,7 +50,25 @@ Activity 3
     }
 3.  The sequence would be 3, 2, 2, 3.
 
-Activity 5: I think the .gitignore got rid of the class files :(
+Activity 5:
+Buggy1: isEmpty()
+        There is something wrong with the isEmpty method, because the
+        program got past the size == 0 test, but not the isEmpty() test,
+        so isEmpty() must not be returning if size == 0.
+Buggy2: (constructor) Deck(ranks, suits, values)
+        It's possible that the constructor doesn't set the size of the deck,
+        because size remains 0 even in a one card deck.
+Buggy3: shuffle()
+        The code doesn't swap cards (swapping functionality is written
+        incorrectly), since all cards remain in the same place.
+Buggy4: isEmpty()
+        The deal() method will return null if the deck is empty, so it is 
+        possible that isEmpty() is incorrect and size() is not being updated
+        properly.
+Buggy5: shuffle()
+        There is an IndexOutOfBoundsException at the Deck.shuffle() method,
+        so it's likely that the index for shuffle is going to -1 instead of 
+        0 and causing errors.
 
 Activity 6:
 1.  The player can take the first 5 of spades and the 6, or take the
