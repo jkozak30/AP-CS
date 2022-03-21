@@ -1,7 +1,22 @@
+Julia Sensei: Julia Kozak, Rin Fukuoka
+APCS pd08
+L07: But These Go Up To Eleven
+2022-03-21
+time spent: 3.0hrs
+
+DISCO:
+- Abstract classes can use both defined methods (that can be overwritten)
+  and abstract methods that are defined by child classes.
+- .gitignore can remove class files from your clone.
+
+QCC:
+- What is causing lag in the graphics runner/ is there any way to prevent it?
+
+
 Questions/Answers
 
 Activity 2
-1.  A card is an object that doesn't change once it is initialized, 
+1.  A card is an object that doesn't change once it is initialized,
     and it can be compared to other cards. A deck holds numerous cards
     and can perform operations with the set of cards it has, such as
     shuffling or dealing.
@@ -9,7 +24,7 @@ Activity 2
 3.  ranks will look like {"Two", "Three", ... , "Ten", "Jack", "Queen", "King", "Ace"}
     suits will look like {"Clubs", "Diamonds", "Hearts", "Spades"}
     values will look like {2, 3, ..., 10, 10, 10, 10, 11}
-4.  suits won't matter, but ranks and values will depend on each other 
+4.  suits won't matter, but ranks and values will depend on each other
     because the order of values must correspond to the order of ranks.
 
 Activity 3
@@ -37,8 +52,8 @@ Activity 3
 
 Activity 5: I think the .gitignore got rid of the class files :(
 
-Activity 6: 
-1.  The player can take the first 5 of spades and the 6, or take the 
+Activity 6:
+1.  The player can take the first 5 of spades and the 6, or take the
     second 5 of clubs and the 6.
 2.  They must be, because if all triples of J, Q, K were already taken,
     that would imply that there were an even number of cards left, which
@@ -51,15 +66,15 @@ Activity 6:
 Activity 7:
 1.  You would need a deck of cards, and point values corresponding to the
     cards.
-2.  You would need to be able to select cards to group (by stating the 
+2.  You would need to be able to select cards to group (by stating the
     index of each of the cards you want to select), which would consist
     of a method retrieving the cards at certain indices, checking if it
     is a pair and if so if the point values sum to 11, otherwise checking
-    if it is a triple and if so if the triple is J, Q, K. If either are 
+    if it is a triple and if so if the triple is J, Q, K. If either are
     true, it will remove those cards and replace them with newly dealt cards.
-3.  Yes, it can deal, replace, check if a move is valid, and check if 
+3.  Yes, it can deal, replace, check if a move is valid, and check if
     there are possible moves.
-4.  
+4.
     a.  It is called in the constructor and in the creation of a new game.
     b.  anotherPlayIsPossible() should use those to check if the current
         board arrangement has a potential move, and isLegal() should do the
@@ -71,17 +86,17 @@ Activity 7:
     d.  for (int i : cIndexes) {
             System.out.println(cards[i]);
         }
-    e.  Most likely anotherPlayIsPossible(), because it must check from the 
+    e.  Most likely anotherPlayIsPossible(), because it must check from the
         whole list of cards and will have to filter out the ones that are null.
 
 Activity 8:
 1.  They will all have the same card decks, deals/replacements, and methods
     to check if the game was won. They may have different initial hand sizes
-    though. They also differ in their isLegal() and anotherPlayIsPossible() 
-    methods, which will check for conditions different from there being a 
+    though. They also differ in their isLegal() and anotherPlayIsPossible()
+    methods, which will check for conditions different from there being a
     pair sum 11 or a triple of JQK.
 2.  The class has static final variables that represent each of the orders of
-    ranks, suits, point values, and board size, and the constructor initializes 
+    ranks, suits, point values, and board size, and the constructor initializes
     a deck with the first three of those parameters, and the array of cards is
     assigned the length of the last parameter.
 3.  isLegal() and anotherPlayIsPossible() are abstract methods. They do cover
@@ -91,12 +106,12 @@ Activity 8:
 
 Activity 9:
 1.  Size isn't an abstract method because it is still a variable that exists and
-    is specific to every board, and the method is simply returning the value 
+    is specific to every board, and the method is simply returning the value
     for that class.
-2.  This is because the replacement methods don't depend on any new function 
+2.  This is because the replacement methods don't depend on any new function
     specific to a class and all essentially do the same thing, which is replace
     those selected cards.
 3.  It would be able to call isLegal() and anotherPlayIsPossible() polymorphically
     like it has been doing, except it wouldn't inherit the already defined functions
-    of each of the other methods. This implementation could work, except each 
+    of each of the other methods. This implementation could work, except each
     class of the parent class will have to redefine every method on its own.
