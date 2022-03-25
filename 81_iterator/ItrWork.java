@@ -4,6 +4,27 @@
 // 2022-03-24
 // time spent: 0.5hrs
 
+/*
+DISCO:
+An Iterator can have type specified (ex. Iterator<Integer>).
+Each it.next() will take the next element after the last (so store a next() value until you are done with it).
+
+QCC:
+Do Scanners use the Iterator interface?
+
+SUMMARY THE FIRST:
+Iterator allows for obtaining elements 1 at a time. 
+hasNext() checks if a collection has another element.
+next() returns the next element in the collection.
+remove() removes the current element from iterator.
+
+SUMMARY THE SECOND:
+ItrWork is a class found() which indicates whether a given element is in a list of Integers 
+and odd() which return a list of all odd numbers in a given list. 
+Both methods have 2 different implementations using a FOREACH loop and Iterator.
+This class also contains removeEvens(), which will remove even integers in a given list.
+*/
+
 /***
  * class ItrWork
  *  SKELETON
@@ -33,7 +54,7 @@ public class ItrWork
   public static boolean foundB( Integer key,
                                 List<Integer> L )
   {
-    Iterator it = L.iterator();
+    Iterator<Integer> it = L.iterator();
     while (it.hasNext()) {
       if (it.next().equals(key)) {return true;}
     }
@@ -46,7 +67,7 @@ public class ItrWork
   {
     List<Integer> ret = new ArrayList<Integer>();
     for (Integer i : L) {
-      if ((int)(i) % 2 == 1) {
+      if (i % 2 == 1) {
         ret.add(i);
       }
     }
@@ -59,10 +80,10 @@ public class ItrWork
   public static List<Integer> oddsB( List<Integer> L )
   {
     List<Integer> ret = new ArrayList<Integer>();
-    Iterator it = L.iterator();
+    Iterator<Integer> it = L.iterator();
     while (it.hasNext()) {
       Integer i = (Integer)(it.next());
-      if ((int)(i) % 2 == 1) {
+      if ( i % 2 == 1) {
         ret.add(i);
       }
     }
@@ -74,9 +95,9 @@ public class ItrWork
   //modifies L s.t. it contains no evens
   public static void removeEvens( List<Integer> L )
   {
-    Iterator it = L.iterator();
+    Iterator<Integer> it = L.iterator();
     while (it.hasNext()) {
-      if ((int)(it.next()) % 2 == 0) {
+      if (it.next() % 2 == 0) {
         it.remove();
       }
     }
@@ -88,7 +109,7 @@ public class ItrWork
   {
     ///*~~~~~~~~~~~~~~~m~o~v~e~~m~e~~d~o~w~n~~~~~~~~~~~~~~
 
-    //var type: List   obj type: ?
+    //var type: List   obj type: ArrayList
     List<Integer> L = new ArrayList<Integer>();
 
     for( int i = 0; i < 10; i++ )
@@ -98,6 +119,7 @@ public class ItrWork
     // TASK: write code to print the contents of L...
 
     // a) using a FOREACH loop
+    System.out.println("Printing L w/ FOREACH ...");
     String ret = "{ ";
     for (Integer i : L) {
       ret += i + ", ";
@@ -109,8 +131,9 @@ public class ItrWork
 
 
     // b) explicitly using an iterator
+    System.out.println("Printing L w/ Iterator ...");
     ret = "{ ";
-    Iterator it = L.iterator();
+    Iterator<Integer> it = L.iterator();
     while (it.hasNext()) {
       ret += it.next() + ", ";
     }
