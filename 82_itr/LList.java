@@ -287,7 +287,7 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
               _dummy.getPrev().setNext(_dummy.getNext());
               _dummy.getNext().setPrev(_dummy.getPrev());
             }
-            
+
     }
     //--------------^  Iterator interface methods  ^-------------
     //-----------------------------------------------------------
