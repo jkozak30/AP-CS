@@ -72,7 +72,7 @@ public class DLLNode<T> {
 	    System.out.println( temp );
 	    temp = temp.getNext();
 	}
-	***********************/
+	**********************/
     }//end main
 
 }//end class DLLNode

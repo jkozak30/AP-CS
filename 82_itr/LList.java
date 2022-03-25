@@ -1,4 +1,4 @@
-/***
+/**
  * class LList v6
  * Implements a linked list of DLLNodes.
  * Version 06 is iterable via FOREACH loop

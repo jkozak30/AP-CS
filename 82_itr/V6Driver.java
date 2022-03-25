@@ -1,4 +1,4 @@
-/***
+/**
  * class V6Driver
  * ...for testing implementation of Iterable interface
  *    (ability to run a FOREACH loop over your LList)

@@ -1,7 +1,7 @@
 Under Pressure: Julia Kozak, Anjini Katari, Yat Long Chan
 APCS pd08
-HW80 -- Generically Speaking
-2022-03-22
+HW82 -- Roll Your Own Iterator
+2022-03-28
 time spent: 0.5hrs
 
 DISCO
