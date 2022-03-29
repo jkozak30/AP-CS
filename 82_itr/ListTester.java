@@ -8,7 +8,7 @@
 
 public class ListTester
 {
-  public static void main( String[] args ) 
+  public static void main( String[] args )
   {
     LList bob = new LList();
     LList<String> hi = new LList<String>();
