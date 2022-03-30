@@ -1,0 +1,14 @@
+Under Pressure: Julia Kozak, Anjini Katari, Yat Long Chan
+APCS pd08
+HW85 -- Leon Leonwood Stack
+2022-03-31
+time spent: 0.6hrs
+
+DISCO:
+ - set() and get() methods that exist for list types can be used to push/pop stack values.
+ - peekTop() can return a value directly stored in the list (at position _stackSize-1).
+
+
+QCC:
+ - Does Z refer to a generic type that we set ourselves?
+ - Can an object take several generic types (ex <Integer, String>)?
