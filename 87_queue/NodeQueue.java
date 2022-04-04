@@ -64,7 +64,7 @@ public class NodeQueue<T> implements Queue<T> {
   }
 
   public T dequeue() {
-    T ret = _front.getCargo();
+    T ret = _front.cargo;
     if (_front == null) return null;
     _front = _front.getNext();
     _size--;
@@ -76,8 +76,8 @@ public class NodeQueue<T> implements Queue<T> {
     if (_size == 0) _front = add;
     else {
       Node current = _front;
-      while (current.getNext() != null) {
-        current = current.getNext();
+      while (current.next != null) {
+        current = current.next;
       }
       current.setNext(add);
     }
@@ -90,7 +90,7 @@ public class NodeQueue<T> implements Queue<T> {
   }
 
   public T peekFront() {
-    return _front.getCargo();
+    return _front.cargo;
   }
 
   public static void main(String[] args) {
