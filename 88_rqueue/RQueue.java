@@ -79,19 +79,18 @@ public class RQueue<T> implements Queue<T>
       shuffler[i] = current;
       current = current.getNext();
     }
-    //works up to ...
     for (int i=0; i<_size; i++) {
       int swap = (int)(Math.random() * _size);
       LLNode temp = shuffler[i];
       shuffler[i] = shuffler[swap];
       shuffler[swap] = temp;
     }
-    for (LLNode i : shuffler) System.out.println(i);
-    System.out.println(this);
     for (int i=0; i<_size-1; i++) {
       shuffler[i].setNext(shuffler[i+1]);
     }
     shuffler[_size-1].setNext(null);
+    _front = shuffler[0];
+    _end = shuffler[_size-1];
   }//O(?)
 
 
