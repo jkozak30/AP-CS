@@ -65,6 +65,9 @@ public class RQueue<T> implements Queue<T>
   // assume _queue ! empty
   public T dequeue()
   {
+    if (isEmpty()) throw new NullPointerException();
+    sample();
+    sample();
     T retVal = _front.getCargo();
     _front = _front.getNext();
 
