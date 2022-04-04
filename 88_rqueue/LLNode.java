@@ -55,10 +55,7 @@ public class LLNode<T>
 
 
   // override inherited toString
-  public String toString()
-  {
-    return _cargo.toString();
-  }
+  public String toString() { return _cargo.toString(); }
 
 
   //main method for testing
