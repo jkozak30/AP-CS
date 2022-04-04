@@ -1,3 +1,20 @@
+//Under Pressure: Julia Kozak, Yat Long Chan, Anjini Katari
+//APCS pd08
+//HW88 -- BPC Kiddies Do Not Wait in Line Either
+//2022-03-11f
+//time spent: 0.6hrs
+
+/*
+  DISCO:
+  _front and _end can be updated with each enqueue/dequeue.
+  Queues can be shuffled in a way similar to arrays.
+
+  QCC:
+  Is there any way to shuffle in < linear time?
+  Should the queue change after sample? or should it just return a random element?
+
+*/
+
 /***
  * class RQueue
  * SKELETON
@@ -69,7 +86,12 @@ public class RQueue<T> implements Queue<T>
   /***
    * void sample() -- a means of "shuffling" the queue
    * Algo:
-   *   < YOUR SUCCINCT SUMMARY HERE >
+   *   Copy each of your nodes into an array.
+   *   The array can then be shuffled in linear time by iterating
+   *   through each element and swapping it with a random index.
+   *   Then, iterate through each member of the shuffled array and
+   *   set its next to the node following it in the array. Then reset
+   *   _front and _end to the corresponding indices of references in the array.
    **/
   public void sample()
   {
@@ -91,13 +113,13 @@ public class RQueue<T> implements Queue<T>
     shuffler[_size-1].setNext(null);
     _front = shuffler[0];
     _end = shuffler[_size-1];
-  }//O(?)
+  }//O(n)
 
 
   public boolean isEmpty()
   {
     return _front == null;
-  } //O(?)
+  } //O(1)
 
 
   // print each node, separated by spaces
@@ -158,6 +180,10 @@ public class RQueue<T> implements Queue<T>
     Que.enqueue(230);
     Que.enqueue(2048);
     Que.enqueue(2);
+    System.out.println(Que);
+    Que.sample();
+    System.out.println(Que);
+    Que.sample();
     System.out.println(Que);
     Que.sample();
     System.out.println(Que);
