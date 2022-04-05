@@ -44,3 +44,12 @@ Activity 1.
       frequently listened to together, which help to decide recommendations.
   11. In the case of Spotify, yes, but most other forms (like targeted
       ads) are definitely an invasion of privacy.
+
+Activity 2.
+  1.  Call it a "cereal".
+  2.  This is awkward
+  3.  public class Cereal
+  4.  15, one for each property of a cereal listed in the table.
+  5.  Name (String), Type (char), Calories, Protein, Fat, Sodium (all ints),
+      Fiber, Carbohydrates, Sugar (all doubles), Potassium, Vitamins, Shelf
+      (all ints), Weight, Cups, Rating (all doubles)
