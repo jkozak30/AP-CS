@@ -8,8 +8,8 @@ data sets:
 To make a JAR available to runtime environment (JRE)...
 
 ```
-$ javac -classpath .:path/to/sinbad.jar -d . Driver.java
-$ java -classpath .:path/tosinbad.jar Driver
+$ javac -classpath .:./sinbad.jar -d . Welcome01.java
+$ java -classpath .:./sinbad.jar Welcome01
 ```
 
 411 on sinbad
@@ -17,39 +17,3 @@ https://berry-cs.github.io/sinbad/install-java
 
 
 ~~~~~~~~~~~~~~~~~
-Q/As
-
-Activity 1.
-  1.  We use Google classroom, GitHub, the Stuy APCS page, and
-      YouTube.
-  2.  GitHub privacy policies say that they collect registration
-      info (username, password, etc.), payment information, and
-      profile information (avatar/bio).
-  3.  Delimited means separated. Each entry of a data set can be
-      separated and extracted from a list.
-  4.  The name of the column (data type may or may not be specified)
-      can suggest what type of data will be stored in that column (ex.
-      name will be a string).
-  5.  challenge
-  6.  it's related to the other one
-  7.  also
-  8.  related
-  9.  With services like Spotify, the songs that some individuals listen
-      to can help the site recognize what artists/genres are similar and
-      base recommendations to others on that info. So, having more users
-      and data can lead to better predictions and suggestions. Not sure
-      of benefits outside of the service.
-  10. I'm not sure how information is processed but I believe Spotify
-      creates networks of users that are similar and artists that are
-      frequently listened to together, which help to decide recommendations.
-  11. In the case of Spotify, yes, but most other forms (like targeted
-      ads) are definitely an invasion of privacy.
-
-Activity 2.
-  1.  Call it a "cereal".
-  2.  This is awkward
-  3.  public class Cereal
-  4.  15, one for each property of a cereal listed in the table.
-  5.  Name (String), Type (char), Calories, Protein, Fat, Sodium (all ints),
-      Fiber, Carbohydrates, Sugar (all doubles), Potassium, Vitamins, Shelf
-      (all ints), Weight, Cups, Rating (all doubles)
