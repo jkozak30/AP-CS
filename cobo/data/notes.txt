@@ -1,8 +1,8 @@
-Team Phantom Tollbooth :: Clyde Sinclair, Fierce Dragon
-APCS
-LAB08 --
+Team Rin Sensei :: Julia Kozak, Rin Fukuoka, John Gupta-She
+APCS pd08
+LAB08 -- America's Next Top Data Scientist
 2022-04-05
-time spent: <elapsed time in hours, rounded to nearest tenth>
+time spent: 3.0hrs
 
 
 DISCO
@@ -11,7 +11,7 @@ DISCO
 QCC
 
 
-<TNPG>'s CSV FLOW:
+Rin Sensei's CSV FLOW:
 <insert your description of your tools and workflow in creating, editing CSV files>
 
 
