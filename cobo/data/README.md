@@ -55,4 +55,23 @@ Activity 3.
       at once.
 
 Activity 4.
-  1.
+  1.  What day had the highest increase in COVID cases in Poland?
+  2.  We had searched the database for statistics on COVID cases across the
+      world, and we had used a selected portion of it to compare statistics for
+      POLSKA.
+  3.  We planned out a Stat class that would organize each row of data into
+      an instance, which we could then use to compare data points.
+  4.  Our class is called Stat, and it contains an instance variable for each
+      column that was in the original data table (ex. number recovered).
+  5.  public CovidCases() throws Exception{
+        Scanner s = new Scanner(new File("CovidData.csv"));
+
+        while (s.hasNext()) {
+          Stat nxt = new Stat(s.next());
+          stats.add(nxt);
+        }
+      }
+
+      the constructor of the CovidCases class will add each new instance
+      of Stat into an ArrayList called stats. It takes the next row from
+      the file, which is the format that the constructor of Stat accepts.
