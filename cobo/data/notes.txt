@@ -1,19 +1,13 @@
-Team Rin Sensei :: Julia Kozak, Rin Fukuoka, John Gupta-She
-APCS pd08
-LAB08 -- America's Next Top Data Scientist
-2022-04-05
-time spent: 3.0hrs
+Rin-Sensei: Rin Fukuoka, Julia Kozak, John Gupta-She
+APCS
+L08 -- America's Next Top Data Scientist
+2022-04-06
+time spent: 2
 
+QCC:
+- What is the syntax used to custom compile using javac?
+- Even after reading man javac, what does -d do?
 
-DISCO
-
-
-QCC
-
-
-Rin Sensei's CSV FLOW:
-<insert your description of your tools and workflow in creating, editing CSV files>
-
-
-TRUBZ
-<this lab involves using tools that are likely to introduce hiccups; log any troubleshooting issues here>
+DISCO:
+- Do not copy files that have 20,000 rows.
+- man javac gives a manual of how to use javac.
