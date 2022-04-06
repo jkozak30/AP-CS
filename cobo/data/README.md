@@ -15,9 +15,10 @@ Activity 1.
   5.  Pokemon and Music
   6.  Who is the most popular pokemon character? (its n)
       What was the most popular rock band in the 90s?
-  7.  Reddit polls
-  8.  MANY REDDIT POLLS. One advantage of having more data is that the larger data is
-      less swung by outliers.
+  7.  (Reddit) polls, or data that reflects opinions submitted by a large
+      group.
+  8.  MANY REDDIT POLLS. One advantage of having more data is that    
+      the larger data is less swung by outliers.
   9.  With services like Spotify, the songs that some individuals listen
       to can help the site recognize what artists/genres are similar and
       base recommendations to others on that info. So, having more users
@@ -41,7 +42,7 @@ Activity 2.
   9.  Which cereal is ranked the highest? (there are no comparison methods).
   10. Add a method that will compare each variable for two instances of Cereal.
 
-  Activity 3.
+Activity 3.
   1.  The temperature at Atlanta, Hartsfield - Jackson Atlanta International
       Airport, GA is 65.0F.
   2.  Code: KALB
@@ -49,6 +50,9 @@ Activity 2.
   4.  47
   5.  You can filter stations by longitude.
   6.  NSTU: Pago Pago, AS, Samoa.
-  7.  We can filter based on longitude. We could answer if longitude is
-      related to temperature.
-  8.  It would basically be the same as with latitude.
+  7.  We can use this code to determine the Southmost station in a state.
+  8.  It would not require much more code, it would just run both filters
+      at once.
+
+Activity 4.
+  1.
