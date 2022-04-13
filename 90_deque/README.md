@@ -13,3 +13,4 @@
 9. remove()
 10. add()
 11. size()
+12. iterator()
