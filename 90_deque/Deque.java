@@ -1,3 +1,8 @@
+//Under Pressure: Julia Kozak, Yat Long Chan, Anjini Katari
+//APCS pd08
+//HW90 - Swabbing the Deque
+//2022-04-11M
+
 public interface Deque<T> {
 
     public boolean isEmpty();
