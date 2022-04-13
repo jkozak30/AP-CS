@@ -1,0 +1,17 @@
+Under Pressure: Julia Kozak, Yat Long Chan, Anjini Katari
+APCS pd08
+HW90 - Swabbing the Deque
+2022-04-11M
+time spent: 0.4 hours
+
+
+DISCO
+- Using LinkedList in a Deque implementation would be best because it is
+  doubly linked and has O(1) add/remove at either end.
+- LinkedList has most of the methods needed for a deque.
+
+QCC
+- Are we supposed to make the class using nodes or can we just make a
+  wrapper class?
+- The Deque interface normally has two versions of each method, one that
+  throws an exception and one that doesn't. Should we implement both?
