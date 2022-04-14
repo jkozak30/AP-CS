@@ -7,7 +7,7 @@ import java.util.*;
 
 public interface Deque<T> extends Iterable<T>{
 
-     public T peekFirst();
+    public T peekFirst();
 
     public T peekLast();
 
@@ -25,9 +25,9 @@ public interface Deque<T> extends Iterable<T>{
 
     public T remove();
 
-    public Iterator<T> iterator();
-
     public boolean add(T x);
+
+    public Iterator<T> iterator();
 
     public int size();
 }

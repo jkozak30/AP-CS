@@ -12,5 +12,5 @@
 8. peek()
 9. remove()
 10. add()
-11. size()
-12. iterator()
+11. iterator()
+12. size()

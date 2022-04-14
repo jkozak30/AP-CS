@@ -8,59 +8,60 @@ import java.util.*;
 
 public class LLDeque<T> implements Deque<T> {
 
-  LinkedList<T> _deque;
+  private LinkedList<T> _deque;
 
   public LLDeque() {
-    _deque = new LinkedList<T>();
-  }
+        _deque = new LinkedList<T>();
+    }
 
-  public boolean isEmpty() {
-    return _deque.size() <= 0;
-  }
+    public T peekFirst() {
+        if (isEmpty()) return null;
+        return _deque.getFirst();
+    }
 
-  public int size() {
-    return _deque.size();
-  }
+    public T peekLast() {
+        if (isEmpty()) return null;
+        return _deque.getLast();
+    }
 
-  //****
-  public void add(T x) {
-    addLast(x);
-  }
+    public boolean isEmpty() {
+        return _deque.size() <= 0;
+    }
 
-  public void addFirst(T x) {
-    _deque.addFirst(x);
-  }
+    public void addFirst(T x) {
+        _deque.addFirst(x);
+    }
 
-  public void addLast(T x) {
-    _deque.addLast(x);
-  }
-  //****
+    public void addLast(T x) {
+        _deque.addLast(x);
+    }
 
-  //****
-  public T remove() {
-    return removeFirst();
-  }
-  public T removeFirst() {
-    return _deque.removeFirst();
-  }
-  public T removeLast() {
-    return _deque.removeLast();
-  }
-  //****
+    public T removeFirst() {
+        return _deque.removeFirst();
+    }
 
-  //****
-  public T peek() {
-    return peekFirst();
-  }
-  public T peekFirst() {
-    return _deque.peekFirst();
-  }
-  public T peekLast() {
-    return _deque.peekLast();
-  }
+    public T removeLast() {
+        return _deque.removeLast();
+    }
 
-  public Iterator<T> iterator() {
-    return _deque.iterator();
-  }
-  //****
+    public T peek() {
+        if (isEmpty()) return null;
+        return _deque.getFirst();
+    }
+
+    public T remove() {
+        return _deque.remove();
+    }
+
+    public boolean add(T x) {
+        return _deque.add(x);
+    }
+
+    public Iterator<T> iterator() {
+        return _deque.iterator();
+    }
+
+    public int size() {
+        return _deque.size();
+    }
 }
