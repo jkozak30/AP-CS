@@ -76,7 +76,7 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-		
+		Celebrity temp = new Celebrity(name, guess);
 	}
 
 	/**
