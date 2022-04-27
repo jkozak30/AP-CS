@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 /**
  * The framework for the Celebrity Game project
- * 
+ *
  * @author cody.henrichsen
  * @version 2.3 25/09/2018 refactored the prepareGame and play methods
  */
@@ -16,7 +16,7 @@ public class CelebrityGame
 	/**
 	 * The GUI frame for the Celebrity game.
 	 */
-	private CelebrityFrame gameWindow;
+  private CelebrityFrame gameWindow;
 
 	/**
 	 * The ArrayList of Celebrity values that make up the game
@@ -38,12 +38,12 @@ public class CelebrityGame
 	public void prepareGame()
 	{
 		celebGameList = new ArrayList<Celebrity>();
-    	gameWindow.replaceScreen("START");
+    gameWindow.replaceScreen("START");
 	}
 
 	/**
 	 * Determines if the supplied guess is correct.
-	 * 
+	 *
 	 * @param guess
 	 *            The supplied String
 	 * @return Whether it matches regardless of case or extraneous external
@@ -70,13 +70,13 @@ public class CelebrityGame
 	{
 		if (celebGameList != null && celebGameList.size() > 0) {
 			this.gameCelebrity = celebGameList.get(0);
-			gameWindow.replaceScreen("GAME");
+			//gameWindow.replaceScreen("GAME");
 		}
 	}
 
 	/**
 	 * Adds a Celebrity of specified type to the game list
-	 * 
+	 *
 	 * @param name
 	 *            The name of the celebrity
 	 * @param guess
@@ -88,8 +88,9 @@ public class CelebrityGame
 	{
 		Celebrity temp;
 		if (type.equals("Literature")) {temp = new LiteratureCelebrity(name, guess);}
+		else if (type.equals("Singer")) {temp = new SingerCelebrity(name, guess);}
 		else {temp = new Celebrity(name, guess);}
-		
+
 		celebGameList.add(temp);
 	}
 
@@ -110,20 +111,45 @@ public class CelebrityGame
 	 * Checks that the supplied clue has at least 10 characters or is a series of clues
 	 * This method would be expanded based on your subclass of Celebrity.
 	 * @param clue The text of the clue(s)
-	 * @param type Supports a subclass of Celebrity 
+	 * @param type Supports a subclass of Celebrity
 	 * @return If the clue is valid.
 	 */
 	public boolean validateClue(String clue, String type)
 	{
-		clue = clue.trim();
+		/*clue = clue.trim();
 		if (clue.length() < 10) return false;
 
-		return true;
+		return true;*/
+
+		boolean validClue = false;
+		if (clue.trim().length() >= 10) {
+			validClue = true;
+			if (type.equalsIgnoreCase("literature")) {
+				String[] temp = clue.split(",");
+				if (temp.length > 1) {
+					validClue = true;
+				} else {
+					validClue = false;
+				}
+			} else if (type.equalsIgnoreCase("singer")) {
+				String[] temp = clue.split(",");
+				if (temp.length > 1) {
+					validClue = true;
+				} else {
+					validClue = false;
+				}
+			} else {
+				if (clue.length() < 10) {validClue = false;}
+				else {validClue = true;}
+			}
+		}
+		return validClue;
+
 	}
 
 	/**
 	 * Accessor method for the current size of the list of celebrities
-	 * 
+	 *
 	 * @return Remaining number of celebrities
 	 */
 	public int getCelebrityGameSize()
@@ -134,7 +160,7 @@ public class CelebrityGame
 	/**
 	 * Accessor method for the games clue to maintain low coupling between
 	 * classes
-	 * 
+	 *
 	 * @return The String clue from the current celebrity.
 	 */
 	public String sendClue()
@@ -145,7 +171,7 @@ public class CelebrityGame
 	/**
 	 * Accessor method for the games answer to maintain low coupling between
 	 * classes
-	 * 
+	 *
 	 * @return The String answer from the current celebrity.
 	 */
 	public String sendAnswer()
