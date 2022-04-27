@@ -41,6 +41,11 @@ public class CelebrityFrame extends JFrame
 	{
 		//The first line of any subclass should ALWAYS be a correct call to the super constructor.
 		super();
+		this.controller = controllerRef;
+		this.panelCards = new JPanel(new CardLayout());
+		this.gamePanel = new CelebrityPanel(controller);
+		this.startPanel = new StartPanel(controller);
+		setupFrame();
 	
 	}
 	
