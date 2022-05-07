@@ -1,0 +1,88 @@
+Teh Tree Stooges :: Mo, Lairree, curl
+APCS pd0
+HW94 -- reverse engineering
+2022-05-06f
+time spent:  hrs
+
+
+DISCO
+------------------------------------------------
+*
+================================================
+
+
+QCC
+------------------------------------------------
+*
+================================================
+
+
+HOW KEEN ARE YOUR POWERS OF OBSERVATION?
+------------------------------------------------
+Q: For a given binary tree, how many unique pre-order traversals are there?
+A: There is one. For each node, there is a unique order in which you will
+   process its children and itself.
+
+Q: For a given binary tree, how many unique in-order traversals are there?
+A: Also one, for same reason.
+
+Q: For a given binary tree, how many unique post-order traversals are there?
+A: Also one, same reason.
+
+Q: For a given traversal, how many unique trees could have produced it?
+A: For a tree of n nodes, it is all possible arrangements of a binary tree with
+   unlabeled nodes (nth Catalan number :o) because for any tree with n nodes,
+   there is a unique traversal that we can run through and label the vertices
+   with the corresponding values that show up in the given list.
+
+Q: Given a pre-order traversal, what can you infer about its tree?
+A: You can determine the root to be the first element. You also know that the
+   following element is a child of it, but you don't know which side or where
+   any other element is.
+
+Q: Given a post-order traversal, what can you infer about its tree?
+A: You know that the root is the last element, and the second to last element
+   is one of its children.
+
+Q: What does "1-to-1" mean?
+A: In a mapping, it means no two elements map to the same value.
+
+Q: What does "onto" mean?
+A: In a mapping, it means each element in the codomain is attained.
+
+================================================
+
+
+ALGO for pre and in
+------------------------------------------------
+givens:
+
+procedure: Look at the first element in your pre-order traversal. This is the
+root (draw it). Look for that vertex's position in the in-order traversal.
+Everything to the left of it in in-order is in its right branch, and everything
+to the right is in the right branch. Now ignore the root and partition each
+traversal into its two branches, the in-order at your root and the pre-order
+at the point where all and only elements in the left branch are to the left of
+your partition. Repeat on the two partitions until each branch is complete.
+
+================================================
+
+
+ALGO for post LRM and in LMR
+------------------------------------------------
+givens:
+
+procedure:
+
+================================================
+
+
+ALGO for pre MLR and in LMR
+------------------------------------------------
+givens:
+
+procedure:
+
+================================================
+(replicate the algo section above as many times as necessary for distinct algos)
+
