@@ -91,4 +91,16 @@ public class TreeNode
     _cargo = theNewValue;
   }
 
+  public String toString(){
+    String ret = "node with val ";
+    ret += this.getValue();
+    ret += ", left: ";
+    if (this.getLeft() != null) ret += this.getLeft().getValue();
+    else ret += "null";
+    ret += ", right: ";
+    if (this.getRight() != null) ret += this.getRight().getValue();
+    else ret += "null";
+    return ret;
+  }
+
 }//end class

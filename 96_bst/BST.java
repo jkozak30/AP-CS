@@ -111,13 +111,6 @@ public class BST
 
 
 
-
-
-
-
-
-
-
   /*****************************************************
      * TreeNode search(int)
      * returns pointer to node containing target,
@@ -125,11 +118,11 @@ public class BST
      *****************************************************/
     TreeNode search( int target )
     {
-`     search(target, _root);
+      return search(target, _root);
     }
 
     TreeNode search(int target, TreeNode st) {
-      if (st == null) return -1;
+      if (st == null) return null;
       else if (st.getValue() == target) { return st; }
       else {
         if (target < st.getValue()) {
@@ -166,34 +159,17 @@ public class BST
      *****************************************************/
     public int numLeaves()
     {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+    	return numLeaves(_root);
     }
 
     public int numLeaves(TreeNode st) {
-      if (st.getRight() == null && st.getLeft() == null) {
-        
+      if (st == null) return 0;
+      else if (st.getRight() == null && st.getLeft() == null) {
+        return 1;
+      } else {
+        return numLeaves(st.getLeft()) + numLeaves(st.getRight());
       }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   //main method for testing
   public static void main( String[] args )
@@ -210,6 +186,23 @@ public class BST
       arbol.insert( 6 );
       arbol.insert( 1 );
       arbol.insert( 3 );
+      //arbol.insert( 20 );
+      //arbol.insert( 10 );
+      //arbol.insert( 23 );
+
+
+      /*
+        tree look like
+
+                 4
+               /  \
+              2    5
+             / \    \
+            1  3     6
+
+        height: 3
+        #leaves: 3
+      */
 
       System.out.println( "\n-----------------------------");
       System.out.println( "pre-order traversal:" );
@@ -222,6 +215,22 @@ public class BST
       System.out.println( "\n-----------------------------");
       System.out.println( "post-order traversal:" );
       arbol.postOrderTrav();
+
+      System.out.println( "\n-----------------------------");
+
+      System.out.println("num leaves: ");
+      System.out.println(arbol.numLeaves());
+
+      System.out.println( "\n-----------------------------");
+
+      System.out.println("height: ");
+      System.out.println(arbol.height());
+
+      System.out.println( "\n-----------------------------");
+
+      int rand = (int)(Math.random() * 7) + 1;
+      System.out.println("searching for " + rand + ": ");
+      System.out.println("found: " + arbol.search(rand));
 
       System.out.println( "\n-----------------------------");
       /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
