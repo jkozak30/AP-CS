@@ -5,7 +5,7 @@
 
 import java.util.ArrayList;
 
-public class ALHeap
+public class ALHeapMin
 {
 
   //instance vars
@@ -14,10 +14,12 @@ public class ALHeap
   /**
    * default constructor  ---  inits empty heap
    */
-  public ALHeap()
+  public ALHeapMin()
   {
     _heap = new ArrayList<Integer>();
   }
+
+  public int size() { return _heap.size(); }
 
 
   /**
@@ -191,14 +193,10 @@ public class ALHeap
   {
     _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
   }
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
-  //main method for testing
   public static void main( String[] args )
   {
-      ALHeap pile = new ALHeap();
+      ALHeapMin pile = new ALHeapMin();
 
       pile.add(2);
       System.out.println(pile);
